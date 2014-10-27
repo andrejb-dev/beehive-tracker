@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.abadinka.beehive.gui.controller.WelcomeController">
+   <children>
+      <AnchorPane prefHeight="30.0" prefWidth="200.0" VBox.vgrow="NEVER">
+         <children>
+            <Button mnemonicParsing="false" text="%btn.app.close" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="0.0" />
+            <HBox spacing="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Button mnemonicParsing="false" text="+" />
+                  <Button mnemonicParsing="false" text="-" />
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+      <ListView focusTraversable="false" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+   </children>
+</VBox>
