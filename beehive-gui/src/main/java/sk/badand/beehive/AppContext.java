@@ -1,11 +1,11 @@
 /*
  * Copyright 2014 Andrej Badinka
  */
-package sk.abadinka.beehive;
+package sk.badand.beehive;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import sk.abadinka.beehive.services.YardService;
+import sk.badand.beehive.services.YardService;
 
 /**
  *

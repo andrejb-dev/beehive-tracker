@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sk.abadinka.beehive.model.persistence;
+package sk.badand.beehive.model.persistence;
 
 import javax.persistence.EntityManager;
 

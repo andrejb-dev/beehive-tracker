@@ -12,6 +12,6 @@ package sk.badand.beehive.model.enums;
 public enum Strength {
     CRITICAL,
     WEAK,
-    MODERATE,
+    HEALTHY,
     STRONG
 }

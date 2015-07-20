@@ -1,7 +1,7 @@
 /*
  * Copyright 2014 Andrej Badinka
  */
-package sk.abadinka.beehive.gui.controller;
+package sk.badand.beehive.gui.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -10,7 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableView;
 import org.springframework.beans.factory.annotation.Autowired;
-import sk.abadinka.beehive.services.YardService;
+import sk.badand.beehive.services.YardService;
 
 /**
  * FXML Controller class

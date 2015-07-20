@@ -1,7 +1,7 @@
 /*
  * Copyright 2014 Andrej Badinka
  */
-package sk.abadinka.beehive.services;
+package sk.badand.beehive.services;
 
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
@@ -10,8 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import sk.abadinka.beehive.model.entities.Hive;
-import sk.abadinka.beehive.model.persistence.PersistenceHelper;
+import sk.badand.beehive.model.Hive;
+import sk.badand.beehive.model.persistence.PersistenceHelper;
 
 /**
  *
@@ -38,8 +38,8 @@ public class HiveService {
         return true;
     }
 
-    public Hive readHive(int hiveId) {
-        return new Hive();
+    public Hive readHive(String name) {
+        return new Hive(name);
     }
 
     public Hive updateHive(Hive hive) {

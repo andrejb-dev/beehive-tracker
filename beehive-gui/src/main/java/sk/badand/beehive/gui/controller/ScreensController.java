@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sk.abadinka.beehive.gui.controller;
+package sk.badand.beehive.gui.controller;
 
 import java.io.IOException;
 import java.util.HashMap;

@@ -8,6 +8,7 @@ package sk.badand.beehive.model;
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Random;
 import java.util.SortedMap;
 import java.util.TreeMap;
 import sk.badand.beehive.model.enums.Strength;
@@ -27,6 +28,10 @@ public class Hive implements Serializable {
     private final SortedMap<Date, Inspection> inspections = new TreeMap<>();
     private final SortedMap<Date, Harvest> harvests = new TreeMap<>();
     private final Todo todo = Todo.EMPTY;
+
+    public Hive(String name) {
+        this(name, State.ACTIVE, Strength.HEALTHY, "", Queen.NO_QUEEN);
+    }
 
     public Hive(String name, Strength strength, String notes) {
         this(name, State.ACTIVE, strength, notes, Queen.NO_QUEEN);
@@ -79,5 +84,10 @@ public class Hive implements Serializable {
 
     public Todo getTodo() {
         return todo;
+    }
+    
+    public static Hive getMockHive(){
+        String name  = "Hive_" + System.currentTimeMillis();
+        return new Hive(name);
     }
 }

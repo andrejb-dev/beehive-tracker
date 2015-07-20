@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package sk.abadinka.beehive.gui.controller;
+package sk.badand.beehive.gui.controller;
 
 /**
  *

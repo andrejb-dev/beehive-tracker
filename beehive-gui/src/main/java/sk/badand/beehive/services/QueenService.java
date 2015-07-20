@@ -1,7 +1,7 @@
 /*
  * Copyright 2014 Andrej Badinka
  */
-package sk.abadinka.beehive.services;
+package sk.badand.beehive.services;
 
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
@@ -10,8 +10,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import sk.abadinka.beehive.model.entities.Queen;
-import sk.abadinka.beehive.model.persistence.PersistenceHelper;
+import sk.badand.beehive.model.Breed;
+import sk.badand.beehive.model.Queen;
+import sk.badand.beehive.model.persistence.PersistenceHelper;
 
 /**
  *
@@ -38,8 +39,8 @@ public class QueenService {
         return true;
     }
 
-    public Queen readQueen(int queenId) {
-        return new Queen();
+    public Queen readQueen(Breed breed) {
+        return new Queen(breed);
     }
 
     public Queen updateQueen(Queen queen) {

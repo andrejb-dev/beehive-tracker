@@ -1,4 +1,4 @@
-package sk.abadinka.beehive.gui;
+package sk.badand.beehive.gui;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -13,9 +13,9 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import sk.abadinka.beehive.AppContext;
-import sk.abadinka.beehive.gui.controller.ScreensController;
-import sk.abadinka.beehive.gui.util.LoggingProperties;
+import sk.badand.beehive.AppContext;
+import sk.badand.beehive.gui.controller.ScreensController;
+import sk.badand.beehive.gui.util.LoggingProperties;
 
 
 public class BeehiveTrackerApp extends Application {
@@ -40,8 +40,8 @@ public class BeehiveTrackerApp extends Application {
     public void start(Stage stage) throws Exception {
         
         ApplicationContext context = new AnnotationConfigApplicationContext(AppContext.class);
-        toto asi moc nejde
-                popozeraj tu screenFX appku
+//        toto asi moc nejde
+//                popozeraj tu screenFX appku
         
         screenController.setScreen(startScreen);
                 

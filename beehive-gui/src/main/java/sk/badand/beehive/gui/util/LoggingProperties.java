@@ -1,7 +1,7 @@
 /*
  * Copyright 2014 Andrej Badinka
  */
-package sk.abadinka.beehive.gui.util;
+package sk.badand.beehive.gui.util;
 
 import java.io.IOException;
 import java.io.InputStream;

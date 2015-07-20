@@ -1,4 +1,4 @@
-package sk.abadinka.beehive.model.persistence;
+package sk.badand.beehive.model.persistence;
 
 import java.io.Serializable;
 import java.util.Collection;

@@ -1,14 +1,19 @@
 /*
  * Copyright 2014 Andrej Badinka
  */
-package sk.abadinka.beehive.services;
+package sk.badand.beehive.services;
 
 import com.j256.ormlite.dao.Dao;
+import java.util.HashMap;
 import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import sk.abadinka.beehive.model.entities.Yard;
+import sk.badand.beehive.model.Address;
+import sk.badand.beehive.model.Hive;
+import sk.badand.beehive.model.Yard;
+import sk.badand.beehive.model.enums.SunExposure;
 
 /**
  *
@@ -29,8 +34,16 @@ public class YardService {
 //        }
 //        yards = new ObservableListWrapper<>(dao.queryForAll());
         yards = FXCollections.observableArrayList();
-        yards.add(new Yard(1, "first"));
-        yards.add(new Yard(2, "second"));
+        final HashMap<String, Hive> hives = new HashMap<String, Hive>();
+        hives.put("test1", Hive.getMockHive());
+        try {
+            Thread.sleep(10);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(YardService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        hives.put("test2", Hive.getMockHive());
+        yards.add(new Yard(hives, Address.getMockAddress(), SunExposure.SUNNY));
+        yards.add(new Yard(new HashMap<String, Hive>(hives), Address.getMockAddress(), SunExposure.SUNNY));
     }
 
     public List readAllYards() {
@@ -45,13 +58,8 @@ public class YardService {
         return false;
     }
 
-    public Yard readYard(int yardId) {
-        for (Yard yard : getYards()) {
-            if (yard.getId() == yardId) {
-                return yard;
-            }
-        }
-        return null;
+    public Yard readYard(String yardName) {
+        return Yard.getMockYard();
     }
 
     public Yard updateYard(Yard yard) {

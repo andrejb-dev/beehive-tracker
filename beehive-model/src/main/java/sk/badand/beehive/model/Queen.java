@@ -24,6 +24,10 @@ public final class Queen implements Serializable{
     private final Date installed;
     private Date removed;
     private Date died;
+    
+    public Queen(Breed breed){
+        this("", breed, Color.NONE, true, null);
+    }
 
     public Queen(String name, Breed breed, Color markColor, boolean accepted, Date installed) {
         this.name = name;

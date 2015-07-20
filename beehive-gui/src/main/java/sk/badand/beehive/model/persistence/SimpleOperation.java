@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package sk.abadinka.beehive.model.persistence;
+package sk.badand.beehive.model.persistence;
 
 import javax.persistence.EntityManager;
 

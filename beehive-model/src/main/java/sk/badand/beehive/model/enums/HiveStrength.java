@@ -1,7 +1,7 @@
 /*
  * Copyright 2014 Andrej Badinka
  */
-package sk.abadinka.beehive.model.enums;
+package sk.badand.beehive.model.enums;
 
 /**
  *

@@ -8,6 +8,7 @@ package sk.badand.beehive.model;
 import java.io.Serializable;
 import java.util.HashMap;
 import sk.badand.beehive.model.enums.SunExposure;
+import sk.badand.math.Randomizer;
 
 /**
  *
@@ -15,6 +16,7 @@ import sk.badand.beehive.model.enums.SunExposure;
  */
 public final class Yard implements Serializable {
 
+    //TODO need id for yard
     private final HashMap<String, Hive> hives;
     private final Address address;
     private final SunExposure sunExposure;
@@ -29,5 +31,14 @@ public final class Yard implements Serializable {
         this.address = address;
         this.sunExposure = sunExposure;
         this.environment = environment;
+    }
+
+    public static Yard getMockYard() {
+        HashMap<String, Hive> hiveList = new HashMap<>();
+        final int hiveCount = Randomizer.nextRandomInt(5);
+        for (int i = 0; i < hiveCount; i++) {
+            hiveList.put("hive_" + i, Hive.getMockHive());            
+        }
+        return new Yard(hiveList, Address.getMockAddress(), SunExposure.SUNNY, new Environment());
     }
 }
