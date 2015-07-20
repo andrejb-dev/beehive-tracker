@@ -85,9 +85,10 @@ public class ScreensController extends StackPane {
     //First it makes sure the screen has been already loaded.  Then if there is more than
     //one screen the new screen is been added second, and then the current screen is removed.
     // If there isn't any screen being displayed, the new screen is just added to the root.
-    public boolean setScreen(final String name) {
-        System.out.println("setScreen " + name);
-        if (getScreen(name) != null) {   //screen loaded
+    public boolean setScreen(final SCREENS screen) {
+        System.out.println("setScreen " + screen);
+        Node screenNode = getScreen(screen.toString());
+        if (screenNode != null) {   //screen loaded
             final DoubleProperty opacity = opacityProperty();
 
             if (!getChildren().isEmpty()) {    //if there is more than one screen
@@ -97,7 +98,7 @@ public class ScreensController extends StackPane {
                             @Override
                             public void handle(ActionEvent t) {
                                 getChildren().remove(0);                    //remove the displayed screen
-                                getChildren().add(0, getScreen(name));     //add the screen
+                                getChildren().add(0, screenNode);     //add the screen
                                 Timeline fadeIn = new Timeline(
                                         new KeyFrame(Duration.ZERO, new KeyValue(opacity, 0.0)),
                                         new KeyFrame(new Duration(300), new KeyValue(opacity, 1.0)));
@@ -108,7 +109,7 @@ public class ScreensController extends StackPane {
 
             } else {
                 setOpacity(0.0);
-                getChildren().add(getScreen(name));       //no one else been displayed, then just show
+                getChildren().add(screenNode);       //no one else been displayed, then just show
                 Timeline fadeIn = new Timeline(
                         new KeyFrame(Duration.ZERO, new KeyValue(opacity, 0.0)),
                         new KeyFrame(new Duration(2500), new KeyValue(opacity, 1.0)));

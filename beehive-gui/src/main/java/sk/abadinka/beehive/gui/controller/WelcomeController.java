@@ -5,7 +5,12 @@ package sk.abadinka.beehive.gui.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.application.Platform;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TableView;
+import org.springframework.beans.factory.annotation.Autowired;
+import sk.abadinka.beehive.services.YardService;
 
 /**
  * FXML Controller class
@@ -15,13 +20,18 @@ import javafx.fxml.Initializable;
 public class WelcomeController implements Initializable, ScreenControllerInjectable {
     
     private ScreensController screenController;
+    @Autowired private YardService yardService;
+    
+    @FXML
+    TableView yardsTable;
+    
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        yardsTable.setItems(yardService.getYards());
     }    
 
     @Override
@@ -29,4 +39,8 @@ public class WelcomeController implements Initializable, ScreenControllerInjecta
         this.screenController = screenController;
     }
     
+    @FXML
+    public void closeApp(){
+        Platform.exit();
+    }
 }
