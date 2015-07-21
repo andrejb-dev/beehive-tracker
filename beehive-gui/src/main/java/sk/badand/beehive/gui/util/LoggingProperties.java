@@ -39,7 +39,7 @@ public class LoggingProperties {
     }
 
     public static void setUp() throws IOException {
-        Handler handler = new FileHandler("logs/app.log", LOG_SIZE, LOG_COUNT);   
+        Handler handler = new FileHandler("%t/beehive-tracker.log", LOG_SIZE, LOG_COUNT);   
         handler.setLevel(Level.INFO);
         Logger.getGlobal().addHandler(handler);
         

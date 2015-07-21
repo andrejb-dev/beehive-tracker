@@ -12,6 +12,7 @@ import java.util.Random;
 import java.util.SortedMap;
 import java.util.TreeMap;
 import sk.badand.beehive.model.enums.Strength;
+import sk.badand.text.RandomStringGenerator;
 
 /**
  *
@@ -87,7 +88,8 @@ public class Hive implements Serializable {
     }
     
     public static Hive getMockHive(){
-        String name  = "Hive_" + System.currentTimeMillis();
+        RandomStringGenerator randomStringGenerator = new RandomStringGenerator();
+        String name  = "Hive_" + randomStringGenerator.generateDesignation(5);
         return new Hive(name);
     }
 }

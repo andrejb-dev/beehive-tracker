@@ -45,6 +45,11 @@ public final class Address {
         
         return formated;
     }
+
+    @Override
+    public String toString() {
+        return formated();
+    }
     
     public static Address getMockAddress(){
         return new Address("Slovakia", "Žiar", "Čečenská švrť", "48.155,17.22");

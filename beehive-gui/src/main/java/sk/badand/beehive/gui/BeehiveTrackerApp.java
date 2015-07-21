@@ -11,9 +11,6 @@ import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import sk.badand.beehive.AppContext;
 import sk.badand.beehive.gui.controller.ScreensController;
 import sk.badand.beehive.gui.util.LoggingProperties;
 
@@ -30,7 +27,7 @@ public class BeehiveTrackerApp extends Application {
             LoggingProperties.setUp();
             Logger.getLogger(BeehiveTrackerApp.class.getName()).log(Level.INFO, "Log set up successfuly.");
         } catch (IOException ex) {
-            System.out.println("EXCEPTION: " + ex);
+            System.out.println("_EXCEPTION: " + ex);
         }
         
         screenController = new ScreensController("/fxml/");
@@ -38,10 +35,6 @@ public class BeehiveTrackerApp extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        
-        ApplicationContext context = new AnnotationConfigApplicationContext(AppContext.class);
-//        toto asi moc nejde
-//                popozeraj tu screenFX appku
         
         screenController.setScreen(startScreen);
                 

@@ -6,6 +6,7 @@
 package sk.badand.beehive.model;
 
 import java.io.Serializable;
+import sk.badand.text.RandomStringGenerator;
 
 /**
  *
@@ -26,4 +27,9 @@ public final class Breed implements Serializable{
     public String getName() {
         return name;
     }
+    
+    public Breed getMock() {
+        return new Breed(new RandomStringGenerator().generateDesignation(8));
+    }
+    
 }

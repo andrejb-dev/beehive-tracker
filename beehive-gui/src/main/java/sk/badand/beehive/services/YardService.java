@@ -26,7 +26,11 @@ public class YardService {
     private ObservableList<Yard> yards;
     private Dao dao = null;
 
-    public YardService() {
+    public static YardService getInstance() {
+        return new YardService();
+    }
+
+    YardService() {
 //        try {
 //            this.dao = DaoManager.createDao(PersistenceHelper.connectionSource, Yard.class);
 //        } catch (SQLException ex) {

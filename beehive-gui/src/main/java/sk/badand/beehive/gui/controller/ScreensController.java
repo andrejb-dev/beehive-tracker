@@ -44,6 +44,7 @@ public class ScreensController extends StackPane {
 //        System.out.println("path: " + BeehiveTracker.class.getResource("view/Welcome.fxml"));
 //        System.out.println("path: " + getClass().getResource("../BeehiveTracker.class"));
 //        System.out.println("path: " + getClass().getClassLoader().getResource("beehive/tracker/screenManager/SCREENS.class"));
+        LOG.log(Level.INFO, "loading..");
         for (SCREENS screen : SCREENS.values()) {
             if (loadScreen(screen.toString())) {
                 LOG.log(Level.FINE, "{0} loaded succesfuly.", screen.name());
@@ -66,7 +67,7 @@ public class ScreensController extends StackPane {
     //Loads the fxml file, add the screen to the screens collection and
     //finally injects the screenPane to the controller.
     private boolean loadScreen(String name) {
-        System.out.println("loadScreen " + SCREENS_FOLDER_PATH + name);
+        LOG.log(Level.FINE, "loadScreen {0}", SCREENS_FOLDER_PATH + name);
         try {
             FXMLLoader myLoader = new FXMLLoader(ScreensController.class.getResource(SCREENS_FOLDER_PATH + name));
             myLoader.setResources(ResourceBundle.getBundle(BUNDLE_FILE_PATH));
@@ -76,7 +77,7 @@ public class ScreensController extends StackPane {
             addScreen(name, loadScreen);
             return true;
         } catch (IOException e) {
-            System.out.println("EXCEPTION: " + e.getMessage());
+            LOG.log(Level.SEVERE, "exception {0}", e);
             return false;
         }
     }
@@ -86,7 +87,7 @@ public class ScreensController extends StackPane {
     //one screen the new screen is been added second, and then the current screen is removed.
     // If there isn't any screen being displayed, the new screen is just added to the root.
     public boolean setScreen(final SCREENS screen) {
-        System.out.println("setScreen " + screen);
+        LOG.log(Level.FINE, "setScreen {0}", screen);
         Node screenNode = getScreen(screen.toString());
         if (screenNode != null) {   //screen loaded
             final DoubleProperty opacity = opacityProperty();
@@ -117,7 +118,7 @@ public class ScreensController extends StackPane {
             }
             return true;
         } else {
-            System.out.println("screen hasn't been loaded!!! \n");
+            LOG.log(Level.WARNING, "screen hasn't been loaded!!!");
             return false;
         }
     }
