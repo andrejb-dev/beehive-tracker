@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package sk.badand.beehive.model.persistence;
+package sk.badand.beehive.modelfx.persistence;
 
 import java.util.Collection;
 

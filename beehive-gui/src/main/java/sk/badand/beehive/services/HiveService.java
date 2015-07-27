@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import sk.badand.beehive.model.Hive;
-import sk.badand.beehive.model.persistence.PersistenceHelper;
+import sk.badand.beehive.modelfx.persistence.PersistenceHelper;
 
 /**
  *

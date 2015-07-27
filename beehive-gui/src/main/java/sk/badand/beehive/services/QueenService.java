@@ -12,7 +12,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import sk.badand.beehive.model.Breed;
 import sk.badand.beehive.model.Queen;
-import sk.badand.beehive.model.persistence.PersistenceHelper;
+import sk.badand.beehive.modelfx.persistence.PersistenceHelper;
 
 /**
  *
