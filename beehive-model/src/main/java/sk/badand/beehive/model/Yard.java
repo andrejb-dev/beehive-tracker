@@ -7,12 +7,6 @@ package sk.badand.beehive.model;
 
 import java.io.Serializable;
 import java.util.HashMap;
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleMapProperty;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
-import javafx.collections.FXCollections;
 import sk.badand.beehive.model.enums.SunExposure;
 import sk.badand.math.Randomizer;
 import sk.badand.text.RandomStringGenerator;
@@ -23,21 +17,21 @@ import sk.badand.text.RandomStringGenerator;
  */
 public final class Yard implements Serializable {
 
-    private final StringProperty name = new SimpleStringProperty(new RandomStringGenerator().generateDesignation(5));
-    private final SimpleMapProperty<String, Hive> hives;
-    private final ObjectProperty<Address> address;
-    private final ObjectProperty<SunExposure> sunExposure;
-    private final ObjectProperty<Environment> environment;
+    private final String name;
+    private final Map<String, Hive> hives;
+    private final Address address;
+    private final SunExposure sunExposure;
+    private final Environment environment;
     
     public Yard(HashMap<String, Hive> hives, Address address, SunExposure sunExposure) {
         this(hives, address, sunExposure, null);
     }
 
     public Yard(HashMap<String, Hive> hives, Address address, SunExposure sunExposure, Environment environment) {
-        this.hives = new SimpleMapProperty<>(FXCollections.observableMap(hives));
-        this.address = new SimpleObjectProperty<>(address);
-        this.sunExposure = new SimpleObjectProperty<>(sunExposure);
-        this.environment = new SimpleObjectProperty<>(environment);
+        this.hives = hives;
+        this.address = address;
+        this.sunExposure = sunExposure;
+        this.environment = environment;
     }
 
     public static Yard getMockYard() {
@@ -49,19 +43,19 @@ public final class Yard implements Serializable {
         return new Yard(hiveList, Address.getMockAddress(), SunExposure.SUNNY, new Environment());
     }
 
-    public StringProperty nameProperty() {
+    public String getName() {
         return name;
     }
-    public SimpleMapProperty<String, Hive> hivesProperty() {
+    public Map<String, Hive> getHives() {
         return hives;
     }
-    public ObjectProperty<Address> addressProperty() {
+    public Address getAddress() {
         return address;
     }
-    public ObjectProperty<SunExposure> sunExposureProperty() {
+    public SunExposure getSunExposure() {
         return sunExposure;
     }
-    public ObjectProperty<Environment> environmentProperty() {
+    public Environment getEnvironment() {
         return environment;
     }
 }
