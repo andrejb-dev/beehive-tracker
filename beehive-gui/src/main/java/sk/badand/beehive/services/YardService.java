@@ -14,6 +14,7 @@ import sk.badand.beehive.model.Address;
 import sk.badand.beehive.model.Hive;
 import sk.badand.beehive.model.Yard;
 import sk.badand.beehive.model.enums.SunExposure;
+import sk.badand.beehive.modelfx.YardFx;
 
 /**
  *
@@ -23,7 +24,7 @@ public class YardService {
 
     private static final Logger LOG = Logger.getLogger(YardService.class.getName());
 
-    private ObservableList<Yard> yards;
+    private ObservableList<YardFx> yards = FXCollections.observableArrayList();
     private Dao dao = null;
 
     public static YardService getInstance() {
@@ -37,17 +38,10 @@ public class YardService {
 //            LOG.log(Level.SEVERE, null, ex);
 //        }
 //        yards = new ObservableListWrapper<>(dao.queryForAll());
-        yards = FXCollections.observableArrayList();
-        final HashMap<String, Hive> hives = new HashMap<String, Hive>();
-        hives.put("test1", Hive.getMockHive());
-        try {
-            Thread.sleep(10);
-        } catch (InterruptedException ex) {
-            Logger.getLogger(YardService.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        hives.put("test2", Hive.getMockHive());
-        yards.add(new Yard(hives, Address.getMockAddress(), SunExposure.SUNNY));
-        yards.add(new Yard(new HashMap<String, Hive>(hives), Address.getMockAddress(), SunExposure.SUNNY));
+        yards.add(new YardFx(Yard.getMockYard()));
+        yards.add(new YardFx(Yard.getMockYard()));
+        yards.add(new YardFx(Yard.getMockYard()));
+        yards.add(new YardFx(Yard.getMockYard()));
     }
 
     public List readAllYards() {
@@ -56,7 +50,7 @@ public class YardService {
 
     public boolean createYard(Yard newYard) {
         if (!yards.contains(newYard)) {
-            getYards().add(newYard);
+            getYards().add(new YardFx(newYard));
             return true;
         }
         return false;
@@ -68,7 +62,7 @@ public class YardService {
 
     public Yard updateYard(Yard yard) {
         if (getYards().contains(yard)) {
-            getYards().set(getYards().indexOf(yard), yard);
+            getYards().set(getYards().indexOf(yard), new YardFx(yard));
             return yard;
         }
         return null;
@@ -78,7 +72,7 @@ public class YardService {
         return getYards().remove(yard);
     }
 
-    public ObservableList<Yard> getYards() {
+    public ObservableList<YardFx> getYards() {
         return yards;
     }
 }

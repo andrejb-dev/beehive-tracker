@@ -33,14 +33,14 @@ public final class Address {
 
     public String formated() {
         String formated
-                = this.street
+                = this.getStreet()
                 + ", "
-                + this.city
+                + this.getCity()
                 + ", "
-                + this.country;
-        if (gpsLocation != null) {
+                + this.getCountry();
+        if (getGpsLocation() != null) {
             formated += ", "
-                    + this.gpsLocation;
+                    + this.getGpsLocation();
         }
         
         return formated;
@@ -53,5 +53,33 @@ public final class Address {
     
     public static Address getMockAddress(){
         return new Address("Slovakia", "Žiar", "Čečenská švrť", "48.155,17.22");
+    }
+
+    /**
+     * @return the city
+     */
+    public String getCity() {
+        return city;
+    }
+
+    /**
+     * @return the street
+     */
+    public String getStreet() {
+        return street;
+    }
+
+    /**
+     * @return the country
+     */
+    public String getCountry() {
+        return country;
+    }
+
+    /**
+     * @return the gpsLocation
+     */
+    public String getGpsLocation() {
+        return gpsLocation;
     }
 }

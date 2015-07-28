@@ -7,6 +7,7 @@ package sk.badand.beehive.model;
 
 import java.io.Serializable;
 import java.util.HashMap;
+import java.util.Map;
 import sk.badand.beehive.model.enums.SunExposure;
 import sk.badand.math.Randomizer;
 import sk.badand.text.RandomStringGenerator;
@@ -28,6 +29,7 @@ public final class Yard implements Serializable {
     }
 
     public Yard(HashMap<String, Hive> hives, Address address, SunExposure sunExposure, Environment environment) {
+        this.name = new RandomStringGenerator().generateDesignation(5);
         this.hives = hives;
         this.address = address;
         this.sunExposure = sunExposure;

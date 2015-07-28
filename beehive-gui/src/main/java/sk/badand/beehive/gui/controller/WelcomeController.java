@@ -8,6 +8,7 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Platform;
+import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
@@ -29,10 +30,10 @@ public class WelcomeController implements Initializable, ScreenControllerInjecta
     
     @FXML
     TableView yardsTable;
-    @FXML
-    private TableColumn<Yard, String> yardNameColumn;
-    @FXML
-    private TableColumn<Yard, Address> yardAddressColumn;
+//    @FXML
+//    private TableColumn<Yard, StringProperty> yardNameColumn;
+//    @FXML
+//    private TableColumn<Yard, Address> yardAddressColumn;
     
 
     /**
@@ -40,8 +41,9 @@ public class WelcomeController implements Initializable, ScreenControllerInjecta
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        yardNameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
-        yardAddressColumn.setCellValueFactory(cellData -> cellData.getValue().addressProperty());
+//        yardNameColumn.setCellValueFactory(cellData -> cellData.getValue().getName());
+//        yardAddressColumn.setCellValueFactory(cellData -> cellData.getValue().getAddress());
+//        yardsTable.
         yardsTable.setItems(yardService.getYards());
     }    
 

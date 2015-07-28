@@ -7,8 +7,7 @@ package sk.badand.beehive.model;
 
 import sk.badand.beehive.model.enums.Color;
 import java.io.Serializable;
-import java.util.Calendar;
-import java.util.Date;
+import java.time.LocalDate;
 
 /**
  *
@@ -21,15 +20,15 @@ public final class Queen implements Serializable{
     private final Breed breed;
     private final MarkSign markSign;
     private final boolean accepted;
-    private final Date installed;
-    private Date removed;
-    private Date died;
+    private final LocalDate installed;
+    private LocalDate removed;
+    private LocalDate died;
     
     public Queen(Breed breed){
         this("", breed, Color.NONE, true, null);
     }
 
-    public Queen(String name, Breed breed, Color markColor, boolean accepted, Date installed) {
+    public Queen(String name, Breed breed, Color markColor, boolean accepted, LocalDate installed) {
         this.name = name;
         this.breed = breed;
         this.markSign = new MarkSign(markColor);
@@ -47,20 +46,20 @@ public final class Queen implements Serializable{
         return accepted;
     }
 
-    public Date getInstalled() {
+    public LocalDate getInstalled() {
         return installed;
     }
 
-    public Date getRemoved() {
+    public LocalDate getRemoved() {
         return removed;
     }
 
-    public void setRemoved(Date removed) {
+    public void setRemoved(LocalDate removed) {
         this.removed = removed;
     }
     
     public void die() {
-        this.died = Calendar.getInstance().getTime();
+        this.died = LocalDate.now();
         this.removed = died;
     }
     
