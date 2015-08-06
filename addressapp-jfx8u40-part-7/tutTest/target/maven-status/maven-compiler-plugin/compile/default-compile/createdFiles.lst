@@ -1,0 +1,9 @@
+ch\makery\address\model\Person.class
+ch\makery\address\util\LocalDateAdapter.class
+ch\makery\address\view\RootLayoutController.class
+ch\makery\address\model\PersonListWrapper.class
+ch\makery\address\view\BirthdayStatisticsController.class
+ch\makery\address\util\DateUtil.class
+ch\makery\address\view\PersonOverviewController.class
+ch\makery\address\view\PersonEditDialogController.class
+ch\makery\address\MainApp.class

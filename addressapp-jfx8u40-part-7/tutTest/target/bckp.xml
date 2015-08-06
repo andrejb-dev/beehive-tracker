@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persons>
+    <person>
+        <birthday>1999-02-21</birthday>
+        <city>some city</city>
+        <firstName>Hans</firstName>
+        <lastName>Muster</lastName>
+        <postalCode>1234</postalCode>
+        <street>some street</street>
+    </person>
+    <person>
+        <birthday>1999-02-21</birthday>
+        <city>some city</city>
+        <firstName>Ruth</firstName>
+        <lastName>Mueller</lastName>
+        <postalCode>1234</postalCode>
+        <street>some street</street>
+    </person>
+    <person>
+        <birthday>1999-02-21</birthday>
+        <city>some city</city>
+        <firstName>Heinz</firstName>
+        <lastName>Kurz</lastName>
+        <postalCode>1234</postalCode>
+        <street>some street</street>
+    </person>
+    <person>
+        <birthday>1999-02-21</birthday>
+        <city>some city</city>
+        <firstName>Cornelia</firstName>
+        <lastName>Meier</lastName>
+        <postalCode>1234</postalCode>
+        <street>some street</street>
+    </person>
+    <person>
+        <birthday>1999-02-21</birthday>
+        <city>some city</city>
+        <firstName>Werner</firstName>
+        <lastName>Meyer</lastName>
+        <postalCode>1234</postalCode>
+        <street>some street</street>
+    </person>
+    <person>
+        <birthday>1999-02-21</birthday>
+        <city>some city</city>
+        <firstName>Lydia</firstName>
+        <lastName>Kunz</lastName>
+        <postalCode>1234</postalCode>
+        <street>some street</street>
+    </person>
+    <person>
+        <birthday>1999-02-21</birthday>
+        <city>some city</city>
+        <firstName>Anna</firstName>
+        <lastName>Best</lastName>
+        <postalCode>1234</postalCode>
+        <street>some street</street>
+    </person>
+    <person>
+        <birthday>1999-02-21</birthday>
+        <city>some city</city>
+        <firstName>Stefan</firstName>
+        <lastName>Meier</lastName>
+        <postalCode>1234</postalCode>
+        <street>some street</street>
+    </person>
+    <person>
+        <birthday>1999-02-21</birthday>
+        <city>some city</city>
+        <firstName>Martin</firstName>
+        <lastName>Mueller</lastName>
+        <postalCode>1234</postalCode>
+        <street>some street</street>
+    </person>
+</persons>
