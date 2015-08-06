@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.badand.beehive.gui.controller.RootLayoutController">
+    <top>
+        <MenuBar BorderPane.alignment="TOP_CENTER">
+            <menus>
+                <Menu mnemonicParsing="false" text="%menu.file">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="%menu.save" onAction="#handleSave" />
+                        <MenuItem mnemonicParsing="false" text="%menu.load" onAction="#handleOpen" />
+                        <MenuItem mnemonicParsing="false" text="%menu.close" onAction="#handleExit" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="%menu.options">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="%menu.language" onAction="#handleAbout" />
+                        <MenuItem mnemonicParsing="false" text="%menu.help" onAction="#handleAbout" />
+                        <MenuItem mnemonicParsing="false" text="%menu.about" onAction="#handleAbout" />
+                    </items>
+                </Menu>
+            </menus>
+         <BorderPane.margin>
+            <Insets left="50.0" right="50.0" />
+         </BorderPane.margin>
+        </MenuBar>
+    </top>
+    <center>
+        <VBox BorderPane.alignment="CENTER">
+            <children>
+                <HBox prefHeight="100.0" prefWidth="200.0">
+                    <children>
+                        <Button mnemonicParsing="false" text="%btn.add" />
+                        <Button mnemonicParsing="false" text="%btn.remove" />
+                    </children>
+                </HBox>
+                <FlowPane prefHeight="200.0" prefWidth="200.0" />
+            </children>
+        </VBox>
+    </center>
+</BorderPane>

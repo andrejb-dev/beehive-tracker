@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
+import javafx.application.Application;
 import javafx.beans.property.DoubleProperty;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -20,7 +21,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 import javafx.util.Duration;
+import sk.badand.beehive.gui.BeehiveTrackerApp;
 
 /**
  *
@@ -33,6 +36,7 @@ public class ScreensController extends StackPane {
     private final HashMap<String, Node> screens = new HashMap<>();
     private static String SCREENS_FOLDER_PATH;
     private static String BUNDLE_FILE_PATH = "Bundle";
+    private Stage primaryStage;
 
     public ScreensController() {
         this("/");
@@ -123,9 +127,24 @@ public class ScreensController extends StackPane {
         }
     }
 
+    /**
+     * @return the primaryStage
+     */
+    public Stage getPrimaryStage() {
+        return primaryStage;
+    }
+
+    /**
+     * @param primaryStage the primaryStage to set
+     */
+    public void setPrimaryStage(Stage primaryStage) {
+        this.primaryStage = primaryStage;
+    }
+
     public static enum SCREENS {
 
-        Welcome("Welcome.fxml");
+        Welcome("Welcome.fxml"),
+        RootLayout("RootLayout.fxml");
 //        Club("Club.fxml"),
 //        Transfers("Transfers.fxml"),
 //        Competitions("Competitions.fxml"),

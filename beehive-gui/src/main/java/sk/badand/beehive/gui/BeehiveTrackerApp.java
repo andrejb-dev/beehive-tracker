@@ -18,7 +18,7 @@ import sk.badand.beehive.gui.util.LoggingProperties;
 public class BeehiveTrackerApp extends Application {
     
     static ScreensController screenController;
-    private static final ScreensController.SCREENS startScreen = ScreensController.SCREENS.Welcome;
+    private static final ScreensController.SCREENS startScreen = ScreensController.SCREENS.RootLayout;
     double dragAnchorX;
     double dragAnchorY;
     
@@ -49,6 +49,8 @@ public class BeehiveTrackerApp extends Application {
         
         final Stage stageRef = stage;        
         initEventHandlers(root, stageRef);
+        
+        screenController.setPrimaryStage(stage);
     }
 
     private void initEventHandlers(Group root, final Stage stageRef) {
@@ -57,13 +59,9 @@ public class BeehiveTrackerApp extends Application {
             dragAnchorY = me.getScreenY() - stageRef.getY();
         });
         
-        root.setOnMouseDragged(new EventHandler<MouseEvent>() {
-
-            @Override
-            public void handle(MouseEvent me) {
-                stageRef.setX(me.getScreenX() - dragAnchorX);
-                stageRef.setY(me.getScreenY() - dragAnchorY);
-            }
+        root.setOnMouseDragged((MouseEvent me) -> {
+            stageRef.setX(me.getScreenX() - dragAnchorX);
+            stageRef.setY(me.getScreenY() - dragAnchorY);
         });
     }
 
