@@ -7,8 +7,10 @@ import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import sk.badand.beehive.gui.controller.ScreensController;
@@ -18,7 +20,7 @@ import sk.badand.beehive.gui.util.LoggingProperties;
 public class BeehiveTrackerApp extends Application {
     
     static ScreensController screenController;
-    private static final ScreensController.SCREENS startScreen = ScreensController.SCREENS.RootLayout;
+    private static final ScreensController.SCREEN startScreen = ScreensController.SCREEN.RootLayout;
     double dragAnchorX;
     double dragAnchorY;
     
@@ -37,11 +39,14 @@ public class BeehiveTrackerApp extends Application {
     public void start(Stage stage) throws Exception {
         
         screenController.setScreen(startScreen);
+        BorderPane screen = (BorderPane)screenController.getScreen(startScreen);
+        screen.setCenter(screenController.getScreen(ScreensController.SCREEN.YardList));
                 
         Group root = new Group();
         root.getChildren().addAll(screenController);
         
         Scene scene = new Scene(root, 1024, 768);
+        scene.getStylesheets().add("/styles/Styles.css");
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setResizable(false);
         stage.setScene(scene);

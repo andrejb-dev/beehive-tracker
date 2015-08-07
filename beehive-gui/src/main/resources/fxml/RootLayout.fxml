@@ -32,17 +32,4 @@
          </BorderPane.margin>
         </MenuBar>
     </top>
-    <center>
-        <VBox BorderPane.alignment="CENTER">
-            <children>
-                <HBox prefHeight="100.0" prefWidth="200.0">
-                    <children>
-                        <Button mnemonicParsing="false" text="%btn.add" />
-                        <Button mnemonicParsing="false" text="%btn.remove" />
-                    </children>
-                </HBox>
-                <FlowPane prefHeight="200.0" prefWidth="200.0" />
-            </children>
-        </VBox>
-    </center>
 </BorderPane>

@@ -49,8 +49,8 @@ public class ScreensController extends StackPane {
 //        System.out.println("path: " + getClass().getResource("../BeehiveTracker.class"));
 //        System.out.println("path: " + getClass().getClassLoader().getResource("beehive/tracker/screenManager/SCREENS.class"));
         LOG.log(Level.INFO, "loading..");
-        for (SCREENS screen : SCREENS.values()) {
-            if (loadScreen(screen.toString())) {
+        for (SCREEN screen : SCREEN.values()) {
+            if (loadScreen(screen)) {
                 LOG.log(Level.FINE, "{0} loaded succesfuly.", screen.name());
             } else {
                 LOG.log(Level.FINE, "{0} NOT loaded succesfuly.", screen.name());
@@ -59,26 +59,26 @@ public class ScreensController extends StackPane {
     }
 
     //Add the screen to the collection
-    public void addScreen(String name, Node screen) {
-        screens.put(name, screen);
+    public void addScreen(SCREEN screen, Node screenNode) {
+        screens.put(screen.toString(), screenNode);
     }
 
     //Returns the Node with the appropriate name
-    public Node getScreen(String name) {
-        return screens.get(name);
+    public Node getScreen(SCREEN screen) {
+        return screens.get(screen.toString());
     }
 
-    //Loads the fxml file, add the screen to the screens collection and
+    //Loads the fxml file, adds the screen to the screens collection and
     //finally injects the screenPane to the controller.
-    private boolean loadScreen(String name) {
-        LOG.log(Level.FINE, "loadScreen {0}", SCREENS_FOLDER_PATH + name);
+    private boolean loadScreen(SCREEN screen) {
+        LOG.log(Level.FINE, "loadScreen {0}", SCREENS_FOLDER_PATH + screen.toString());
         try {
-            FXMLLoader myLoader = new FXMLLoader(ScreensController.class.getResource(SCREENS_FOLDER_PATH + name));
+            FXMLLoader myLoader = new FXMLLoader(ScreensController.class.getResource(SCREENS_FOLDER_PATH + screen.toString()));
             myLoader.setResources(ResourceBundle.getBundle(BUNDLE_FILE_PATH));
             Parent loadScreen = (Parent) myLoader.load();
             ScreenControllerInjectable myScreenControler = ((ScreenControllerInjectable) myLoader.getController());
+            addScreen(screen, loadScreen);
             myScreenControler.setScreenController(this);
-            addScreen(name, loadScreen);
             return true;
         } catch (IOException e) {
             LOG.log(Level.SEVERE, "exception {0}", e);
@@ -90,9 +90,9 @@ public class ScreensController extends StackPane {
     //First it makes sure the screen has been already loaded.  Then if there is more than
     //one screen the new screen is been added second, and then the current screen is removed.
     // If there isn't any screen being displayed, the new screen is just added to the root.
-    public boolean setScreen(final SCREENS screen) {
+    public boolean setScreen(final SCREEN screen) {
         LOG.log(Level.FINE, "setScreen {0}", screen);
-        Node screenNode = getScreen(screen.toString());
+        Node screenNode = getScreen(screen);
         if (screenNode != null) {   //screen loaded
             final DoubleProperty opacity = opacityProperty();
 
@@ -141,10 +141,13 @@ public class ScreensController extends StackPane {
         this.primaryStage = primaryStage;
     }
 
-    public static enum SCREENS {
+    public static enum SCREEN {
 
         Welcome("Welcome.fxml"),
-        RootLayout("RootLayout.fxml");
+        RootLayout("RootLayout.fxml"),
+        YardList("parts/YardList.fxml"),
+        YardOverview("YardOverview.fxml"),
+        HiveOverview("HiveOverview.fxml");
 //        Club("Club.fxml"),
 //        Transfers("Transfers.fxml"),
 //        Competitions("Competitions.fxml"),
@@ -157,7 +160,7 @@ public class ScreensController extends StackPane {
 
         private final String screenName;
 
-        private SCREENS(final String screenName) {
+        private SCREEN(final String screenName) {
             this.screenName = screenName;
         }
 

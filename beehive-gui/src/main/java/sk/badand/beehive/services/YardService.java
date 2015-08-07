@@ -26,9 +26,13 @@ public class YardService {
 
     private ObservableList<YardFx> yards = FXCollections.observableArrayList();
     private Dao dao = null;
+    private static YardService instance;
 
     public static YardService getInstance() {
-        return new YardService();
+        if (instance == null) {
+            instance = new YardService();
+        }
+        return instance;
     }
 
     YardService() {

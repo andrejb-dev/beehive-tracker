@@ -19,10 +19,18 @@ import sk.badand.beehive.modelfx.persistence.PersistenceHelper;
  */
 public class HiveService {
     private static final Logger LOG = Logger.getLogger(HiveService.class.getName());
+    private static HiveService instance;
     
     private Dao dao = null;
 
-    public HiveService() {
+    public static HiveService getInstance() {
+        if (instance == null) {
+            instance = new HiveService();
+        }
+        return instance;
+    }
+
+    private HiveService() {
         try {
             this.dao = DaoManager.createDao(PersistenceHelper.connectionSource, Hive.class);
         } catch (SQLException ex) {

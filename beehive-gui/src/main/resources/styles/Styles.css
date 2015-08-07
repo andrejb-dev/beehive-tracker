@@ -1,3 +1,33 @@
+* {    
+    -fx-font-size: 11pt;
+}
+
 .button {
-    -fx-font-weight: bold;
+    -fx-background-color: transparent;
+    -fx-border-style: none;
+    -fx-focus-color: transparent;
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-background-radius: 0;
+    -fx-padding: 5 10 5 10;
+}
+
+.button:hover {
+    -fx-background-color: steelblue;
+}
+
+.button:pressed, .button:hover:pressed
+{
+    -fx-background-color: lightsteelblue;
+}
+
+.button:focused
+{
+    -fx-focus-color: transparent;
+}
+
+.menu-bar {    
+    -fx-border-style: none;
+    -fx-background-color: transparent;
+    -fx-focus-color: transparent;
+    -fx-background-radius: 0;
 }

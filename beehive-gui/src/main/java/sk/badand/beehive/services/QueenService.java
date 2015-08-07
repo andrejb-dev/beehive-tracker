@@ -19,11 +19,20 @@ import sk.badand.beehive.modelfx.persistence.PersistenceHelper;
  * @author abadinka
  */
 public class QueenService {
+
     private static final Logger LOG = Logger.getLogger(QueenService.class.getName());
-    
+    private static QueenService instance;
+
     private Dao dao = null;
 
-    public QueenService() {
+    public static QueenService getInstance() {
+        if (instance == null) {
+            instance = new QueenService();
+        }
+        return instance;
+    }
+
+    private QueenService() {
         try {
             this.dao = DaoManager.createDao(PersistenceHelper.connectionSource, Queen.class);
         } catch (SQLException ex) {
@@ -50,5 +59,5 @@ public class QueenService {
     public boolean deleteQueen(int queenId) {
         return true;
     }
-    
+
 }
