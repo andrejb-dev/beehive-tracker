@@ -1,5 +1,8 @@
 * {    
     -fx-font-size: 11pt;
+    /** for layout testing, uncomment following lines
+    -fx-border-style: dashed;
+    -fx-border-color: red; **/
 }
 
 .button {
