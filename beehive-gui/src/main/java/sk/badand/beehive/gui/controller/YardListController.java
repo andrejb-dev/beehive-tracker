@@ -7,13 +7,13 @@ package sk.badand.beehive.gui.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.beans.value.ObservableValue;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
-import javafx.util.Callback;
+import sk.badand.beehive.gui.controller.enums.SCREEN;
 import sk.badand.beehive.modelfx.YardFx;
 import sk.badand.beehive.services.YardService;
 
@@ -23,8 +23,10 @@ import sk.badand.beehive.services.YardService;
  * @author abadinka <andrej.badinka@interway.sk>
  */
 public class YardListController implements Initializable, ScreenControllerInjectable {
+    private static final Logger LOG = Logger.getLogger(YardListController.class.getName());
+    
 
-    private ScreensController controller;
+    private ScreensController screensController;
     private YardService yardService = YardService.getInstance();
 
     @FXML
@@ -48,7 +50,12 @@ public class YardListController implements Initializable, ScreenControllerInject
 
     @Override
     public void setScreenController(ScreensController screenController) {
-        this.controller = screenController;
+        this.screensController = screenController;
     }
 
+    @FXML
+    private void showYard(){
+        LOG.log(Level.INFO, "entering");
+        screensController.setScreen(SCREEN.YardOverview);
+    } 
 }

@@ -6,24 +6,22 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
-import javafx.event.EventHandler;
 import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.WindowEvent;
 import sk.badand.beehive.gui.controller.ScreensController;
+import sk.badand.beehive.gui.controller.enums.SCREEN;
 import sk.badand.beehive.gui.util.LoggingProperties;
 
 public class BeehiveTrackerApp extends Application {
 
     static ScreensController screenController;
-    private static final ScreensController.SCREEN startScreen = ScreensController.SCREEN.RootLayout;
+    private static final SCREEN startScreen = SCREEN.RootLayout;
     double dragAnchorX;
     double dragAnchorY;
 
@@ -42,9 +40,7 @@ public class BeehiveTrackerApp extends Application {
     public void start(Stage stage) throws Exception {
 
         screenController.setScreen(startScreen);
-        BorderPane screen = (BorderPane) screenController.getScreen(startScreen);
-        screen.setCenter(screenController.getScreen(ScreensController.SCREEN.YardList));
-
+        
         Group root = new Group();
         root.getChildren().addAll(screenController);
 

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.badand.beehive.gui.controller.YardInfoController"
+      spacing="50" >
+    <children>
+        <VBox>
+            <children>
+                <Label text="%yard.name" />  
+                <Label text="%yard.address" />  
+                <Label text="%description" />   
+            </children>
+        </VBox>
+        <VBox>
+            <children>
+                <Label text="%notes" />
+                <Label text="%yard.sunExposure" />  
+                <Label text="%yard.environment" /> 
+            </children>
+        </VBox>
+    </children>
+</HBox>

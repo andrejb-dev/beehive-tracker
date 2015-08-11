@@ -8,11 +8,19 @@
 
 <BorderPane id="HivePane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="sk.badand.beehive.gui.controller.HiveOverviewController">
-    <top>        
-        <HBox prefHeight="100.0" prefWidth="200.0">
-            <children>
-                <Button mnemonicParsing="false" text="%btn.back" />
-            </children>
-        </HBox>
+    <top>      
+        <fx:include fx:id="menu" source="parts/Menu.fxml"/>
     </top>
+    <center>
+        <VBox>
+            <children>  
+                <HBox>
+                    <children>
+                        <Button mnemonicParsing="false" text="%btn.back" onMouseClicked="#showYard" />
+                    </children>
+                </HBox>
+                <fx:include fx:id="hiveInfo" source="parts/HiveInfo.fxml"/>                
+            </children>
+        </VBox>
+    </center>
 </BorderPane>

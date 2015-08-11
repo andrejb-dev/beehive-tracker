@@ -8,29 +8,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768" prefWidth="1024" 
-            xmlns="http://javafx.com/javafx/8"
-            fx:controller="sk.badand.beehive.gui.controller.RootLayoutController">
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="sk.badand.beehive.gui.controller.RootLayoutController"
+            xmlns="http://javafx.com/javafx/8">
     <top>
-        <MenuBar >
-            <menus>
-                <Menu mnemonicParsing="false" text="%menu.file">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="%menu.new" onAction="#handleNew" />
-                        <MenuItem mnemonicParsing="false" text="%menu.load" onAction="#handleOpen" />
-                        <MenuItem mnemonicParsing="false" text="%menu.save" onAction="#handleSave" />
-                        <MenuItem mnemonicParsing="false" text="%menu.saveAs" onAction="#handleSaveAs" />
-                        <!--<MenuItem mnemonicParsing="false" text="%menu.close" onAction="#handleExit" />-->
-                    </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="%menu.options">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="%menu.language" onAction="#handleAbout" />
-                        <MenuItem mnemonicParsing="false" text="%menu.help" onAction="#handleAbout" />
-                        <MenuItem mnemonicParsing="false" text="%menu.about" onAction="#handleAbout" />
-                    </items>
-                </Menu>
-            </menus>
-        </MenuBar>
+        <fx:include fx:id="menu" source="parts/Menu.fxml"/>
     </top>
+    <center>
+        <fx:include fx:id="yardList" source="parts/YardList.fxml"/>
+    </center>
 </BorderPane>

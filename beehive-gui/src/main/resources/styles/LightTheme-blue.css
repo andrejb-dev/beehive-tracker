@@ -4,11 +4,11 @@
     -fx-border-style: dashed;
     -fx-border-color: red; **/
     /** colors definition **/
-    bt-base-color: #A7CFFF;
+    bt-base-color: #0096c9;
     bt-darkest-color: derive(bt-base-color,-60%);
     bt-dark-color: derive(bt-base-color,-30%);
     bt-light-color: derive(bt-base-color,30%);
-    bt-lightest-color: derive(bt-base-color,60%);
+    bt-lightest-color: derive(bt-base-color,90%);
 }
 
 /*************************
@@ -22,10 +22,11 @@ BUTTON
     -fx-font-size: 25pt;
     -fx-background-radius: 0;
     -fx-padding: 5 10 5 10;
+    -fx-min-width: 150;
 }
 
 .button:hover {
-    -fx-background-color: bt-dark-color;
+    -fx-background-color: bt-base-color;
     -fx-text-fill: bt-lightest-color;
 }
 
@@ -42,8 +43,8 @@ BUTTON
 /*************************
 MENU
 **************************/
-.menu-bar {    
-    -fx-border-style: none;
+.menu-bar { 
+    /*-fx-border-style: none;*/
     -fx-background-color: transparent;
     -fx-focus-color: transparent;
     -fx-background-radius: 0;
@@ -58,7 +59,7 @@ Table
     -fx-table-header-border-color: transparent;
 }
 
-.table-view .column-header {
-    -fx-background-color: bt-dark-color;
+.table-view .column-header .label {
+    -fx-background-color: bt-base-color;
     -fx-text-fill: bt-lightest-color;
 }

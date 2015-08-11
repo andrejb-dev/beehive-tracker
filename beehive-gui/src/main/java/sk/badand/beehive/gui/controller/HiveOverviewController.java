@@ -7,7 +7,9 @@ package sk.badand.beehive.gui.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import sk.badand.beehive.gui.controller.enums.SCREEN;
 
 /**
  * FXML Controller class
@@ -15,7 +17,12 @@ import javafx.fxml.Initializable;
  * @author abadinka <andrej.badinka@interway.sk>
  */
 public class HiveOverviewController implements Initializable, ScreenControllerInjectable {
-    private ScreensController controller;
+    private ScreensController screensController;
+    
+    @FXML
+    private MenuController menuController;
+    @FXML
+    private HiveInfoController hiveInfoController;
 
     /**
      * Initializes the controller class.
@@ -27,7 +34,14 @@ public class HiveOverviewController implements Initializable, ScreenControllerIn
 
     @Override
     public void setScreenController(ScreensController screenController) {
-        this.controller = screenController;
+        this.screensController = screenController;
+        this.menuController.setScreenController(screenController);
+        this.hiveInfoController.setScreenController(screenController);
+    }
+    
+    @FXML
+    private void showYard() {
+        screensController.setScreen(SCREEN.YardOverview);
     }
     
 }

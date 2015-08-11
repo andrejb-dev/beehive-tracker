@@ -18,12 +18,14 @@ import javafx.beans.property.DoubleProperty;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import sk.badand.beehive.gui.BeehiveTrackerApp;
+import sk.badand.beehive.gui.controller.enums.SCREEN;
 
 /**
  *
@@ -56,6 +58,8 @@ public class ScreensController extends StackPane {
                 LOG.log(Level.FINE, "{0} NOT loaded succesfuly.", screen.name());
             }
         }
+        
+        initLayout();
     }
 
     //Add the screen to the collection
@@ -141,32 +145,11 @@ public class ScreensController extends StackPane {
         this.primaryStage = primaryStage;
     }
 
-    public static enum SCREEN {
-
-        Welcome("Welcome.fxml"),
-        RootLayout("RootLayout.fxml"),
-        YardList("parts/YardList.fxml"),
-        YardOverview("YardOverview.fxml"),
-        HiveOverview("HiveOverview.fxml");
-//        Club("Club.fxml"),
-//        Transfers("Transfers.fxml"),
-//        Competitions("Competitions.fxml"),
-//        TopMenu("TopMenu.fxml"),
-//        StartPage("StartScreen.fxml"),
-//        MatchPreview("MatchPreview.fxml"),
-//        SquadTactic("SquadTactic.fxml"),
-//        Match("Match.fxml"),
-//        MatchResult("MatchResult.fxml");
-
-        private final String screenName;
-
-        private SCREEN(final String screenName) {
-            this.screenName = screenName;
-        }
-
-        @Override
-        public String toString() {
-            return screenName;
-        }
+    private void initLayout() {
+        this.setPadding(new Insets(0, DEFAULT_PADDING, DEFAULT_PADDING, DEFAULT_PADDING));
+        this.setPrefHeight(768);
+        this.setPrefWidth(1024);
     }
+    private static final int DEFAULT_PADDING = 20;
+
 }
