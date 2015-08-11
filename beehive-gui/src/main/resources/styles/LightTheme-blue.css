@@ -1,0 +1,64 @@
+* {    
+    -fx-font-size: 14pt;
+    /** for layout testing, uncomment following lines
+    -fx-border-style: dashed;
+    -fx-border-color: red; **/
+    /** colors definition **/
+    bt-base-color: #A7CFFF;
+    bt-darkest-color: derive(bt-base-color,-60%);
+    bt-dark-color: derive(bt-base-color,-30%);
+    bt-light-color: derive(bt-base-color,30%);
+    bt-lightest-color: derive(bt-base-color,60%);
+}
+
+/*************************
+BUTTON
+**************************/
+.button {
+    -fx-background-color: transparent;
+    -fx-border-style: none;
+    -fx-focus-color: transparent;
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-font-size: 25pt;
+    -fx-background-radius: 0;
+    -fx-padding: 5 10 5 10;
+}
+
+.button:hover {
+    -fx-background-color: bt-dark-color;
+    -fx-text-fill: bt-lightest-color;
+}
+
+.button:pressed, .button:hover:pressed
+{
+    -fx-background-color: bt-light-color;
+}
+
+.button:focused
+{
+    -fx-focus-color: transparent;
+}
+
+/*************************
+MENU
+**************************/
+.menu-bar {    
+    -fx-border-style: none;
+    -fx-background-color: transparent;
+    -fx-focus-color: transparent;
+    -fx-background-radius: 0;
+}
+
+/*************************
+Table
+**************************/
+.table-view {
+    -fx-table-border-color: transparent;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
+}
+
+.table-view .column-header {
+    -fx-background-color: bt-dark-color;
+    -fx-text-fill: bt-lightest-color;
+}

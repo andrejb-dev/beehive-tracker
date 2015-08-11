@@ -122,8 +122,8 @@ public class RootLayoutController implements Initializable, ScreenControllerInje
     /**
      * Closes the application.
      */
-    @FXML
-    private void handleExit() {
-        System.exit(0);
-    }
+//    @FXML
+//    private void handleExit() {
+//        System.exit(0);
+//    }
 }

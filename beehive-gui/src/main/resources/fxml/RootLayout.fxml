@@ -8,15 +8,19 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.badand.beehive.gui.controller.RootLayoutController">
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768" prefWidth="1024" 
+            xmlns="http://javafx.com/javafx/8"
+            fx:controller="sk.badand.beehive.gui.controller.RootLayoutController">
     <top>
-        <MenuBar BorderPane.alignment="TOP_CENTER" >
+        <MenuBar >
             <menus>
                 <Menu mnemonicParsing="false" text="%menu.file">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="%menu.save" onAction="#handleSave" />
+                        <MenuItem mnemonicParsing="false" text="%menu.new" onAction="#handleNew" />
                         <MenuItem mnemonicParsing="false" text="%menu.load" onAction="#handleOpen" />
-                        <MenuItem mnemonicParsing="false" text="%menu.close" onAction="#handleExit" />
+                        <MenuItem mnemonicParsing="false" text="%menu.save" onAction="#handleSave" />
+                        <MenuItem mnemonicParsing="false" text="%menu.saveAs" onAction="#handleSaveAs" />
+                        <!--<MenuItem mnemonicParsing="false" text="%menu.close" onAction="#handleExit" />-->
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="%menu.options">
@@ -28,5 +32,5 @@
                 </Menu>
             </menus>
         </MenuBar>
-    </top>    
+    </top>
 </BorderPane>

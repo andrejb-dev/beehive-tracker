@@ -43,6 +43,7 @@ public class YardListController implements Initializable, ScreenControllerInject
         yardName.setCellValueFactory(data -> data.getValue().name());
         hivesCount.setCellValueFactory(data -> data.getValue().hivesCount());
         yardsView.setItems(yardService.getYards());
+        yardsView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
     }
 
     @Override
