@@ -75,7 +75,7 @@ public class ScreensController extends StackPane {
     //Loads the fxml file, adds the screen to the screens collection and
     //finally injects the screenPane to the controller.
     private boolean loadScreen(SCREEN screen) {
-        LOG.log(Level.FINE, "loadScreen {0}", SCREENS_FOLDER_PATH + screen.toString());
+        LOG.log(Level.INFO, "loadScreen {0}", SCREENS_FOLDER_PATH + screen.toString());
         try {
             FXMLLoader myLoader = new FXMLLoader(ScreensController.class.getResource(SCREENS_FOLDER_PATH + screen.toString()));
             myLoader.setResources(ResourceBundle.getBundle(BUNDLE_FILE_PATH));
