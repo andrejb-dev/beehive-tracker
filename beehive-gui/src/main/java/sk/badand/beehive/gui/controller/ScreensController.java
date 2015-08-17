@@ -13,7 +13,6 @@ import java.util.logging.Logger;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
-import javafx.application.Application;
 import javafx.beans.property.DoubleProperty;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -24,7 +23,6 @@ import javafx.scene.Parent;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import sk.badand.beehive.gui.BeehiveTrackerApp;
 import sk.badand.beehive.gui.controller.enums.SCREEN;
 
 /**
@@ -70,6 +68,11 @@ public class ScreensController extends StackPane {
     //Returns the Node with the appropriate name
     public Node getScreen(SCREEN screen) {
         return screens.get(screen.toString());
+    }
+    
+    public ScreenControllerInjectable getController(SCREEN screen){
+            FXMLLoader myLoader = new FXMLLoader(ScreensController.class.getResource(SCREENS_FOLDER_PATH + screen.toString()));
+            return myLoader.getController();        
     }
 
     //Loads the fxml file, adds the screen to the screens collection and

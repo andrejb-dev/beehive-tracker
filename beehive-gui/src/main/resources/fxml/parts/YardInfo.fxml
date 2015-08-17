@@ -11,16 +11,34 @@
     <children>
         <VBox>
             <children>
-                <Label text="%yard.name" />  
-                <Label text="%yard.address" />  
-                <Label text="%description" />   
+                <HBox >
+                    <Label text="%yard.name" />
+                    <Label fx:id="yardName" />
+                </HBox>
+                <HBox >
+                    <Label text="%yard.address" />
+                    <Label fx:id="yardAddress" />
+                </HBox>
+                <HBox >
+                    <Label text="%description" />
+                    <Label fx:id="yardDescription" />
+                </HBox>
             </children>
         </VBox>
         <VBox>
             <children>
-                <Label text="%notes" />
-                <Label text="%yard.sunExposure" />  
-                <Label text="%yard.environment" /> 
+                <HBox >
+                    <Label text="%notes" />
+                    <Label fx:id="yardNotes" />
+                </HBox>
+                <HBox >
+                    <Label text="%yard.sunExposure" />
+                    <Label fx:id="yardSunExposure" />
+                </HBox>
+                <HBox >
+                    <Label text="%yard.environment" />
+                    <Label fx:id="yardEnvironment" />
+                </HBox>
             </children>
         </VBox>
     </children>

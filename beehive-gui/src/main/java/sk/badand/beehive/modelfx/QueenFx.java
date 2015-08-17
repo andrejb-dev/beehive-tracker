@@ -34,39 +34,60 @@ public class QueenFx {
         removed.setValue(origin.getRemoved());
     }
 
-    /**
-     * @return the breed
-     */
-    public ObjectProperty<Breed> getBreed() {
+    public Breed getBreed() {
+        return breed.getValue();
+    }
+
+    public void setBreed(Breed breed) {
+        this.breed.setValue(breed);
+    }
+    
+    public ObjectProperty<Breed> breedProperty(){
         return breed;
     }
 
-    /**
-     * @return the age
-     */
-    public StringProperty getAge() {
+    public String getAge() {
+        return age.getValueSafe(); //calculate from installed
+    }
+
+    public StringProperty ageProperty() {
         return age;
     }
 
-    /**
-     * @return the installed
-     */
-    public ObjectProperty<LocalDate> getInstalled() {
+    public LocalDate getInstalled() {
+        return installed.getValue();
+    }
+
+    public ObjectProperty<LocalDate> installedProperty() {
         return installed;
     }
 
-    /**
-     * @return the removed
-     */
-    public ObjectProperty<LocalDate> getRemoved() {
+    public void setInstalled(LocalDate installed) {
+        this.installed.setValue(installed);
+    }
+
+    public ObjectProperty<LocalDate> removedProperty() {
         return removed;
     }
 
-    /**
-     * @return the name
-     */
-    public StringProperty getName() {
+    public LocalDate getRemoved() {
+        return removed.getValue();
+    }
+
+    public void setRemoved(LocalDate removed) {
+        this.removed.setValue(removed);
+    }
+
+    public StringProperty nameProperty() {
         return name;
+    }
+
+    public String getName() {
+        return name.getValueSafe();
+    }
+
+    public void setName(String name) {
+        this.name.setValue(name);
     }
     
     

@@ -10,11 +10,12 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import sk.badand.beehive.gui.controller.enums.SCREEN;
+import sk.badand.beehive.modelfx.YardFx;
 
 /**
  * FXML Controller class
  *
- * @author abadinka <andrej.badinka@interway.sk>
+ * @author abadinka
  */
 public class YardOverviewController implements Initializable, ScreenControllerInjectable {
     private ScreensController screensController;

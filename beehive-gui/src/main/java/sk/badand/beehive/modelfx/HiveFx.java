@@ -35,7 +35,7 @@ public class HiveFx {
     private final ObjectProperty<Queen> queen = new SimpleObjectProperty<>();
     private final SortedMap<LocalDateTime, Inspection> inspections = new TreeMap<>();
     private final SortedMap<LocalDateTime, Harvest> harvests = new TreeMap<>();
-    private final ObjectProperty<Todo> todo = new SimpleObjectProperty<>(Todo.EMPTY);
+    private final ObjectProperty<TodoFx> todo = new SimpleObjectProperty<>();
 
     public HiveFx(Hive origin) {
         this.origin = origin;
@@ -46,66 +46,31 @@ public class HiveFx {
         return origin;
     }
 
-    /**
-     * @return the name
-     */
-    public StringProperty getName() {
+    public StringProperty nameProperty() {
         return name;
     }
 
-    /**
-     * @return the state
-     */
-    public ObjectProperty<State> getState() {
+    public ObjectProperty<State> stateProperty() {
         return state;
     }
 
-    /**
-     * @return the created
-     */
-    public ObjectProperty<LocalDate> getCreated() {
+    public ObjectProperty<LocalDate> createdProperty() {
         return created;
     }
 
-    /**
-     * @return the strength
-     */
-    public ObjectProperty<Strength> getStrength() {
+    public ObjectProperty<Strength> strengthProperty() {
         return strength;
     }
 
-    /**
-     * @return the notes
-     */
-    public StringProperty getNotes() {
+    public StringProperty notesProperty() {
         return notes;
     }
 
-    /**
-     * @return the queen
-     */
-    public ObjectProperty<Queen> getQueen() {
+    public ObjectProperty<Queen> queenProperty() {
         return queen;
     }
 
-    /**
-     * @return the inspections
-     */
-    public SortedMap<LocalDateTime, Inspection> getInspections() {
-        return inspections;
-    }
-
-    /**
-     * @return the harvests
-     */
-    public SortedMap<LocalDateTime, Harvest> getHarvests() {
-        return harvests;
-    }
-
-    /**
-     * @return the todo
-     */
-    public ObjectProperty<Todo> getTodo() {
+    public ObjectProperty<TodoFx> todoProperty() {
         return todo;
     }
 }

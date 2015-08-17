@@ -34,6 +34,7 @@ public class YardService {
         }
         return instance;
     }
+    private YardFx yardForOverview;
 
     YardService() {
 //        try {
@@ -78,5 +79,13 @@ public class YardService {
 
     public ObservableList<YardFx> getYards() {
         return yards;
+    }
+
+    public void setYardForOverview(YardFx yardFx) {
+        yardForOverview = yardFx;
+    }
+    
+    public YardFx getYardForOverview(){
+        return yardForOverview;
     }
 }

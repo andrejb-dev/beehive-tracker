@@ -11,6 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import sk.badand.beehive.gui.controller.enums.SCREEN;
@@ -42,7 +43,7 @@ public class YardListController implements Initializable, ScreenControllerInject
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        yardName.setCellValueFactory(data -> data.getValue().name());
+        yardName.setCellValueFactory(data -> data.getValue().nameProperty());
         hivesCount.setCellValueFactory(data -> data.getValue().hivesCount());
         yardsView.setItems(yardService.getYards());
         yardsView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
@@ -56,6 +57,7 @@ public class YardListController implements Initializable, ScreenControllerInject
     @FXML
     private void showYard(){
         LOG.log(Level.INFO, "entering");
+        yardService.setYardForOverview(yardsView.getSelectionModel().getSelectedItem());
         screensController.setScreen(SCREEN.YardOverview);
     } 
 }

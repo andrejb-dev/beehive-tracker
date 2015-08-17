@@ -43,11 +43,11 @@ public class YardFx {
         name.setValue(origin.getName());
     }
 
-    public ObjectProperty<AddressFx> address() {
+    public ObjectProperty<AddressFx> addressProperty() {
         return address;
     }
 
-    public ListProperty<HiveFx> hives() {
+    public ListProperty<HiveFx> hivesProperty() {
         return hives;
     }
     
@@ -55,9 +55,7 @@ public class YardFx {
         return new ReadOnlyObjectWrapper(hives.size());
     }
 
-    public StringProperty name() {
+    public StringProperty nameProperty() {
         return name;
     }
-    
-    
 }
