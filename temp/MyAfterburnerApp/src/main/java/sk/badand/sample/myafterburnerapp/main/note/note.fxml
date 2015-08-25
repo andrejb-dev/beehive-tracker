@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.badand.sample.myafterburnerapp.main.note.NotePresenter">
+    <stylesheets>
+        <URL value="@/styles/note.css"/>
+    </stylesheets>
+    <children>
+        <VBox >
+            <children>
+                <TextArea fx:id="content" VBox.vgrow="ALWAYS"  />
+                <HBox alignment="CENTER">
+                    <children>
+                        <Button text="New" /> 
+                        <Button text="Save" /> 
+                        <Button text="Cancel" /> 
+                    </children>
+                </HBox>  
+            </children>
+        </VBox>
+        
+    </children>
+</AnchorPane>
