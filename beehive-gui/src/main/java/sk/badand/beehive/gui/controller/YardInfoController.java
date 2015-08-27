@@ -28,10 +28,7 @@ public class YardInfoController implements Initializable, ScreenControllerInject
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) { 
-        yardFx = YardService.getInstance().getYardForOverview();
-        if (yardFx != null) {
-            yardName.setText(yardFx.nameProperty().getValue());
-        }
+        yardName.textProperty().bind(yardFx.nameProperty());
     }    
 
     @Override

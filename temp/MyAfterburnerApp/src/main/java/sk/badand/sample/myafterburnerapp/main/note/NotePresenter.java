@@ -72,9 +72,9 @@ public class NotePresenter implements Initializable {
     
     @FXML
     private void newNote() {
-        editedNote.set(new Note("new note"));
-        noteService.add(editedNote.getValue());
-        clearUI();
+        final Note note = new Note("new note");
+        editedNote.set(note);
+        noteService.add(note);
     }
     
     @FXML
@@ -89,6 +89,11 @@ public class NotePresenter implements Initializable {
         LOG.log(Level.INFO, "notes: {0}", noteService.getNotes().size());
     }
     
+    @FXML
+    private void delete() {
+        LOG.log(Level.INFO, "delete");
+        noteService.remove(editedNote.getValue());
+    }    
 
     public ObjectProperty<Note> getEditedNote() {
         return editedNote;

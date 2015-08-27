@@ -7,17 +7,15 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" id="AnchorPane" 
-            fx:controller="sk.badand.sample.myafterburnerapp.main.MainPresenter"
-            styleClass="mainFxmlClass">
+<AnchorPane id="AnchorPane" prefHeight="400" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.badand.sample.myafterburnerapp.main.MainPresenter">
     <stylesheets>
-        <URL value="@/styles/main.css"/>
+        <URL value="@/styles/main.css" />
     </stylesheets>
     <children>
-        <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" spacing="10" >
+        <VBox spacing="10" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" >
             <children>
                 <AnchorPane fx:id="notelist" VBox.vgrow="ALWAYS" /> 
-                <AnchorPane fx:id="note" minWidth="300"  />                 
+                <AnchorPane fx:id="note" VBox.vgrow="NEVER" minHeight="150" />
             </children>
         </VBox>
     </children>

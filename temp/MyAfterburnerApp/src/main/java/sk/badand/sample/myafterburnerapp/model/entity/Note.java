@@ -17,7 +17,7 @@ import javafx.beans.property.StringProperty;
  * @author abadinka
  */
 public class Note {
-    
+
     private StringProperty title;
     private StringProperty content;
     private ObjectProperty<LocalDateTime> created;
@@ -26,7 +26,6 @@ public class Note {
         this.title = new SimpleStringProperty();
         this.content = new SimpleStringProperty();
         this.created = new SimpleObjectProperty<>(LocalDateTime.now());
-        this.content.set("");
     }
 
     public Note(String title) {
@@ -51,7 +50,10 @@ public class Note {
         if (obj == null || !(obj instanceof Note)) {
             return false;
         }
-        return this.title.getValue().equals(((Note)obj).titleProperty().getValue());
+        if (this.title.getValue().equals(((Note) obj).titleProperty().getValue())) {
+            return this.created.getValue().isEqual(((Note) obj).created.getValue());
+        }
+        return false;
     }
 
     @Override

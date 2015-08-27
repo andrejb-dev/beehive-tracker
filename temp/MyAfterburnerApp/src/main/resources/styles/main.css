@@ -9,4 +9,13 @@
 * {
 /*    -fx-border-style: dashed;
     -fx-border-color: red;*/
+    bt-base-color: #0096c9;
+    bt-darkest-color: derive(bt-base-color,-60%);
+    bt-dark-color: derive(bt-base-color,-30%);
+    bt-light-color: derive(bt-base-color,30%);
+    bt-lightest-color: derive(bt-base-color,90%);
+    
+    -fx-background-color: bt-lightest-color;
 }
+
+

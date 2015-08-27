@@ -51,7 +51,6 @@ public class NotelistPresenter implements Initializable {
         noteTable.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         noteTable.getColumns().addAll(createTitleColumn(), createContentColumn(), createCreatedColumn());
         noteTable.setItems(noteService.getNotes());
-        selectedNote.addListener(x -> noteTable.getSelectionModel().getSelectedItem());
         noteTable.getSelectionModel().selectedItemProperty().addListener((a,b,c) -> {
             selectedNote.setValue(c);
         });
@@ -77,14 +76,6 @@ public class NotelistPresenter implements Initializable {
         TableColumn<Note, LocalDateTime> createdColumn = new TableColumn<>("Created");
         createdColumn.setCellValueFactory(data -> data.getValue().createdProperty());
         return createdColumn;
-    }
-    
-    @FXML
-    private void reload() {
-        LOG.log(Level.INFO, "reload");
-        for (Note note : noteService.getNotes()) {
-            LOG.log(Level.INFO, "note: {0}", new Object[]{note});
-        }
     }
     
 }

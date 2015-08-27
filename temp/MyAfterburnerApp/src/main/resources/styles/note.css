@@ -3,10 +3,44 @@
  */
 
 .text-area .content{
-    -fx-background-color: beige;
+    -fx-background-color: aliceblue;
 }
 
 * {
 /*    -fx-border-style: dashed;
-    -fx-border-color: green;*/
+    -fx-border-color: green;
+    -fx-border-width: 2;*/
+    bt-base-color: #0096c9;
+    bt-darkest-color: derive(bt-base-color,-60%);
+    bt-dark-color: derive(bt-base-color,-30%);
+    bt-light-color: derive(bt-base-color,30%);
+    bt-lightest-color: derive(bt-base-color,90%);
+}
+
+/*************************
+BUTTON
+**************************/
+.button {
+    -fx-background-color: transparent;
+    -fx-border-style: none;
+    -fx-focus-color: transparent;
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-background-radius: 0;
+    -fx-padding: 5 10 5 10;
+    -fx-min-width: 150;
+}
+
+.button:hover {
+    -fx-background-color: bt-base-color;
+    -fx-text-fill: bt-lightest-color;
+}
+
+.button:pressed, .button:hover:pressed
+{
+    -fx-background-color: bt-light-color;
+}
+
+.button:focused
+{
+    -fx-focus-color: transparent;
 }

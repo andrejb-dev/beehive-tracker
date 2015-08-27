@@ -29,23 +29,24 @@ public class MainPresenter implements Initializable {
     Pane notelist;
     @FXML
     Pane note;
-    
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        NoteView noteView = new NoteView();        
+        NoteView noteView = new NoteView();
         NotelistView notelistView = new NotelistView();
-        
+
         layout(notelistView, noteView);
         initBinding(notelistView, noteView);
-        
-        notelist.getChildren().addAll(notelistView.getView(), noteView.getView());
+
+        notelist.getChildren().add(notelistView.getView());
+        note.getChildren().add(noteView.getView());
     }
 
     private void layout(NotelistView notelistView, NoteView noteView) {
-        //        AnchorPane.setTopAnchor(noteView.getView(), 0.0);
+        AnchorPane.setTopAnchor(noteView.getView(), 0.0);
         AnchorPane.setTopAnchor(notelistView.getView(), 0.0);
         AnchorPane.setBottomAnchor(noteView.getView(), 0.0);
-//        AnchorPane.setBottomAnchor(notelistView.getView(), 0.0);
+        AnchorPane.setBottomAnchor(notelistView.getView(), 0.0);
         AnchorPane.setLeftAnchor(noteView.getView(), 0.0);
         AnchorPane.setLeftAnchor(notelistView.getView(), 0.0);
         AnchorPane.setRightAnchor(noteView.getView(), 0.0);
@@ -55,13 +56,13 @@ public class MainPresenter implements Initializable {
     private void initBinding(NotelistView notelistView, NoteView noteView) {
         NotePresenter notePresenter = (NotePresenter) noteView.getPresenter();
         NotelistPresenter notelistPresenter = (NotelistPresenter) notelistView.getPresenter();
-        
-        notelistPresenter.getSelectedNote().addListener((a,b,c) -> {
+
+        notelistPresenter.getSelectedNote().addListener((a, b, c) -> {
             notePresenter.getEditedNote().setValue(c);
         });
 //        notelistPresenter.getNoteTable().getSelectionModel().selectedItemProperty().addListener((a,b,c) -> {
 //            notePresenter.getEditedNote().setValue(c);
 //        });
     }
-    
+
 }
