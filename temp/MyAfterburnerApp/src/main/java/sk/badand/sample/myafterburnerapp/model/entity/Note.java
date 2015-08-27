@@ -6,6 +6,7 @@
 package sk.badand.sample.myafterburnerapp.model.entity;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -13,18 +14,18 @@ import javafx.beans.property.StringProperty;
 
 /**
  *
- * @author abadinka <andrej.badinka@interway.sk>
+ * @author abadinka
  */
 public class Note {
     
     private StringProperty title;
     private StringProperty content;
-    private ObjectProperty<LocalDate> created;
+    private ObjectProperty<LocalDateTime> created;
 
     public Note() {
         this.title = new SimpleStringProperty();
         this.content = new SimpleStringProperty();
-        this.created = new SimpleObjectProperty<>(LocalDate.now());
+        this.created = new SimpleObjectProperty<>(LocalDateTime.now());
         this.content.set("");
     }
 
@@ -41,7 +42,20 @@ public class Note {
         return this.content;
     }
 
-    public ObjectProperty<LocalDate> createdProperty() {
+    public ObjectProperty<LocalDateTime> createdProperty() {
         return created;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == null || !(obj instanceof Note)) {
+            return false;
+        }
+        return this.title.getValue().equals(((Note)obj).titleProperty().getValue());
+    }
+
+    @Override
+    public String toString() {
+        return "[" + title.getValue() + "," + created.getValue() + "," + content.getValue() + "]";
     }
 }

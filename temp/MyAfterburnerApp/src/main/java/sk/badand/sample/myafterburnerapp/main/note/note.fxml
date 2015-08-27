@@ -7,23 +7,25 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.badand.sample.myafterburnerapp.main.note.NotePresenter">
+<VBox xmlns:fx="http://javafx.com/fxml/1" id="AnchorPane" fx:controller="sk.badand.sample.myafterburnerapp.main.note.NotePresenter">
     <stylesheets>
         <URL value="@/styles/note.css"/>
     </stylesheets>
     <children>
-        <VBox >
+        <HBox >
             <children>
-                <TextArea fx:id="content" VBox.vgrow="ALWAYS"  />
-                <HBox alignment="CENTER">
-                    <children>
-                        <Button text="New" /> 
-                        <Button text="Save" /> 
-                        <Button text="Cancel" /> 
-                    </children>
-                </HBox>  
+                <Label fx:id="createdDate" alignment="CENTER_LEFT"  /> 
+                <Label fx:id="title" alignment="CENTER_RIGHT" /> 
             </children>
-        </VBox>
+        </HBox>
+        <TextArea fx:id="content" VBox.vgrow="ALWAYS"  />
+        <HBox alignment="CENTER">
+            <children>
+                <Button text="New" onAction="#newNote"  /> 
+                <Button text="Save" onAction="#save" /> 
+                <Button text="Delete" /> 
+            </children>
+        </HBox>
         
     </children>
-</AnchorPane>
+</VBox>

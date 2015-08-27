@@ -9,7 +9,7 @@ import com.airhacks.afterburner.views.FXMLView;
 
 /**
  *
- * @author abadinka <andrej.badinka@interway.sk>
+ * @author abadinka
  */
 public class MainView extends FXMLView {
     

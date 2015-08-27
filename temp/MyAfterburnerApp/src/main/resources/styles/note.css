@@ -5,3 +5,8 @@
 .text-area .content{
     -fx-background-color: beige;
 }
+
+* {
+/*    -fx-border-style: dashed;
+    -fx-border-color: green;*/
+}

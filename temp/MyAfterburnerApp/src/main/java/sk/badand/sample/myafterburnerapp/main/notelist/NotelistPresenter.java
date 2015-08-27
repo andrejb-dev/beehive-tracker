@@ -6,26 +6,35 @@
 package sk.badand.sample.myafterburnerapp.main.notelist;
 
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.SelectionMode;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javax.inject.Inject;
 import sk.badand.sample.myafterburnerapp.model.entity.Note;
+import sk.badand.sample.myafterburnerapp.model.entity.NoteService;
 
 /**
  * FXML Controller class
  *
- * @author abadinka <andrej.badinka@interway.sk>
+ * @author abadinka
  */
 public class NotelistPresenter implements Initializable {
+    private static final Logger LOG = Logger.getLogger(NotelistPresenter.class.getName());
     
     @FXML
     private TableView<Note> noteTable;
     
-    private ObservableList<Note> notes;
+    @Inject
+    NoteService noteService;
+    private ObjectProperty<Note> selectedNote;
     
 
     /**
@@ -33,14 +42,49 @@ public class NotelistPresenter implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        this.notes = FXCollections.observableArrayList();
+        this.selectedNote = new SimpleObjectProperty<>();
         prepareTable();
     }    
 
     private void prepareTable() {
-        noteTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
+        noteTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);        
         noteTable.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-        noteTable.setItems(notes);
+        noteTable.getColumns().addAll(createTitleColumn(), createContentColumn(), createCreatedColumn());
+        noteTable.setItems(noteService.getNotes());
+        selectedNote.addListener(x -> noteTable.getSelectionModel().getSelectedItem());
+        noteTable.getSelectionModel().selectedItemProperty().addListener((a,b,c) -> {
+            selectedNote.setValue(c);
+        });
+    }
+
+    public ObjectProperty<Note> getSelectedNote() {
+        return selectedNote;
+    }
+    
+    private TableColumn createTitleColumn() {
+        TableColumn<Note, String> titleColumn = new TableColumn<>("Title");
+        titleColumn.setCellValueFactory(data -> data.getValue().titleProperty());
+        return titleColumn;
+    }   
+    
+    private TableColumn createContentColumn() {
+        TableColumn<Note, String> contentColumn = new TableColumn<>("Content");
+        contentColumn.setCellValueFactory(data -> data.getValue().contentProperty());
+        return contentColumn;
+    }  
+    
+    private TableColumn createCreatedColumn() {
+        TableColumn<Note, LocalDateTime> createdColumn = new TableColumn<>("Created");
+        createdColumn.setCellValueFactory(data -> data.getValue().createdProperty());
+        return createdColumn;
+    }
+    
+    @FXML
+    private void reload() {
+        LOG.log(Level.INFO, "reload");
+        for (Note note : noteService.getNotes()) {
+            LOG.log(Level.INFO, "note: {0}", new Object[]{note});
+        }
     }
     
 }

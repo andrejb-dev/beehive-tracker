@@ -7,11 +7,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.badand.sample.myafterburnerapp.main.notelist.NotelistPresenter">
+<HBox id="AnchorPane" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.badand.sample.myafterburnerapp.main.notelist.NotelistPresenter"
+style="-fx-border-color: black;">
     <stylesheets>
         <URL value="@/styles/notelist.css"/>
     </stylesheets>
     <children>
-        <TableView fx:id="noteTable" /> 
+        <Button text="Reload" onAction="#reload" />  
+        <TableView fx:id="noteTable" HBox.hgrow="ALWAYS" prefHeight="300"  />
     </children>
-</AnchorPane>
+</HBox>

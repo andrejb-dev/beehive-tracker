@@ -7,15 +7,21 @@ package sk.badand.sample.myafterburnerapp.main;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import sk.badand.sample.myafterburnerapp.main.note.NotePresenter;
 import sk.badand.sample.myafterburnerapp.main.note.NoteView;
+import sk.badand.sample.myafterburnerapp.main.notelist.NotelistPresenter;
 import sk.badand.sample.myafterburnerapp.main.notelist.NotelistView;
+import sk.badand.sample.myafterburnerapp.model.entity.Note;
 
 /**
  *
- * @author abadinka <andrej.badinka@interway.sk>
+ * @author abadinka
  */
 public class MainPresenter implements Initializable {
 
@@ -26,11 +32,36 @@ public class MainPresenter implements Initializable {
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        NoteView noteView = new NoteView();
-        note.getChildren().add(noteView.getView());
-        
+        NoteView noteView = new NoteView();        
         NotelistView notelistView = new NotelistView();
-        notelist.getChildren().add(notelistView.getView());
+        
+        layout(notelistView, noteView);
+        initBinding(notelistView, noteView);
+        
+        notelist.getChildren().addAll(notelistView.getView(), noteView.getView());
+    }
+
+    private void layout(NotelistView notelistView, NoteView noteView) {
+        //        AnchorPane.setTopAnchor(noteView.getView(), 0.0);
+        AnchorPane.setTopAnchor(notelistView.getView(), 0.0);
+        AnchorPane.setBottomAnchor(noteView.getView(), 0.0);
+//        AnchorPane.setBottomAnchor(notelistView.getView(), 0.0);
+        AnchorPane.setLeftAnchor(noteView.getView(), 0.0);
+        AnchorPane.setLeftAnchor(notelistView.getView(), 0.0);
+        AnchorPane.setRightAnchor(noteView.getView(), 0.0);
+        AnchorPane.setRightAnchor(notelistView.getView(), 0.0);
+    }
+
+    private void initBinding(NotelistView notelistView, NoteView noteView) {
+        NotePresenter notePresenter = (NotePresenter) noteView.getPresenter();
+        NotelistPresenter notelistPresenter = (NotelistPresenter) notelistView.getPresenter();
+        
+        notelistPresenter.getSelectedNote().addListener((a,b,c) -> {
+            notePresenter.getEditedNote().setValue(c);
+        });
+//        notelistPresenter.getNoteTable().getSelectionModel().selectedItemProperty().addListener((a,b,c) -> {
+//            notePresenter.getEditedNote().setValue(c);
+//        });
     }
     
 }

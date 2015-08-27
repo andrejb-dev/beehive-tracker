@@ -5,3 +5,8 @@
 .mainFxmlClass {
 
 }
+
+* {
+/*    -fx-border-style: dashed;
+    -fx-border-color: black;*/
+}
