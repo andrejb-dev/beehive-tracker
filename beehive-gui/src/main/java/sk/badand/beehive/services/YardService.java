@@ -3,17 +3,11 @@
  */
 package sk.badand.beehive.services;
 
-import com.j256.ormlite.dao.Dao;
-import java.util.HashMap;
 import java.util.List;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import sk.badand.beehive.model.Address;
-import sk.badand.beehive.model.Hive;
 import sk.badand.beehive.model.Yard;
-import sk.badand.beehive.model.enums.SunExposure;
 import sk.badand.beehive.modelfx.YardFx;
 
 /**
@@ -25,7 +19,6 @@ public class YardService {
     private static final Logger LOG = Logger.getLogger(YardService.class.getName());
 
     private ObservableList<YardFx> yards = FXCollections.observableArrayList();
-    private Dao dao = null;
     private static YardService instance;
 
     public static YardService getInstance() {

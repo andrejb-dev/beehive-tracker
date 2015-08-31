@@ -3,15 +3,10 @@
  */
 package sk.badand.beehive.services;
 
-import com.j256.ormlite.dao.Dao;
-import com.j256.ormlite.dao.DaoManager;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 import sk.badand.beehive.model.Hive;
-import sk.badand.beehive.modelfx.persistence.PersistenceHelper;
 
 /**
  *
@@ -20,8 +15,6 @@ import sk.badand.beehive.modelfx.persistence.PersistenceHelper;
 public class HiveService {
     private static final Logger LOG = Logger.getLogger(HiveService.class.getName());
     private static HiveService instance;
-    
-    private Dao dao = null;
 
     public static HiveService getInstance() {
         if (instance == null) {
@@ -31,11 +24,6 @@ public class HiveService {
     }
 
     private HiveService() {
-        try {
-            this.dao = DaoManager.createDao(PersistenceHelper.connectionSource, Hive.class);
-        } catch (SQLException ex) {
-            LOG.log(Level.SEVERE, null, ex);
-        }
     }
 
     public List readAllHives() {
