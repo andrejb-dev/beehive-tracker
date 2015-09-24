@@ -1,0 +1,9 @@
+/*************************
+MENU
+**************************/
+.menu-bar { 
+/*    -fx-background-color: bt-darkest-color;
+    -fx-text-fill: bt-lightest-color;*/
+    -fx-focus-color: transparent;
+    -fx-background-radius: 0;
+}

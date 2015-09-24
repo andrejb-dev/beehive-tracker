@@ -1,9 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright 2015 Andrej Badinka
  */
-package sk.badand.beehive.gui.controller;
+package sk.badand.beehive.gui.tips;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -16,14 +14,14 @@ import sk.badand.math.Randomizer;
 /**
  * FXML Controller class
  *
- * @author abadinka <andrej.badinka@interway.sk>
+ * @author abadinka
  */
-public class TipsModalController implements Initializable {
+public class TipsPresenter implements Initializable {
 
     @FXML
     private TextArea tipContentArea;
 
-    private ResourceBundle resourceBundle = ResourceBundle.getBundle("tips");
+    private ResourceBundle resourceBundle = ResourceBundle.getBundle("Tips");
     private Set<String> tipKeys = resourceBundle.keySet();
     private String lastShowedTipKey = "tip.theme1";
 
@@ -55,5 +53,4 @@ public class TipsModalController implements Initializable {
             }
         }
     }
-
 }

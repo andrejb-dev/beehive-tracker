@@ -28,7 +28,6 @@ public class RootLayoutController implements Initializable, ScreenControllerInje
     @Override
     public void setScreenController(ScreensController screenController) {
         this.controller = screenController;
-        menuController.setScreenController(screenController);
         yardListController.setScreenController(screenController);
     }
     

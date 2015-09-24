@@ -35,7 +35,6 @@ public class HiveOverviewController implements Initializable, ScreenControllerIn
     @Override
     public void setScreenController(ScreensController screenController) {
         this.screensController = screenController;
-        this.menuController.setScreenController(screenController);
         this.hiveInfoController.setScreenController(screenController);
     }
     

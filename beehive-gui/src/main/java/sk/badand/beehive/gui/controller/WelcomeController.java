@@ -26,7 +26,7 @@ public class WelcomeController implements Initializable, ScreenControllerInjecta
     private static final Logger LOG = Logger.getLogger(WelcomeController.class.getName());    
     
     private ScreensController screenController;
-    private YardService yardService = YardService.getInstance();
+//    private YardService yardService = YardService.getInstance();
     
     @FXML
     TableView yardsTable;
@@ -44,7 +44,7 @@ public class WelcomeController implements Initializable, ScreenControllerInjecta
 //        yardNameColumn.setCellValueFactory(cellData -> cellData.getValue().getName());
 //        yardAddressColumn.setCellValueFactory(cellData -> cellData.getValue().getAddress());
 //        yardsTable.
-        yardsTable.setItems(yardService.getYards());
+//        yardsTable.setItems(yardService.getYards());
     }    
 
     @Override
@@ -59,7 +59,7 @@ public class WelcomeController implements Initializable, ScreenControllerInjecta
     
     @FXML
     public void addNewYard(){
-        LOG.log(Level.INFO, "yards: {0}", yardService.getYards());
-        yardService.createYard(Yard.getMockYard());
+//        LOG.log(Level.INFO, "yards: {0}", yardService.getYards());
+//        yardService.createYard(Yard.getMockYard());
     }
 }

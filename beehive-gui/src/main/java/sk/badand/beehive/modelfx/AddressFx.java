@@ -36,4 +36,13 @@ public class AddressFx {
         this.origin = new Address(country.getValue(), city.getValue(), street.getValue(), gpsLocation.getValue());
         return origin;
     }
+
+    @Override
+    public String toString() {
+        return formated.getValue();
+    }
+    
+    public StringProperty formatedProperty(){
+        return formated;
+    }
 }

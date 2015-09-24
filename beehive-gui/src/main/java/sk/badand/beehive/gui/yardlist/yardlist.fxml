@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.badand.beehive.gui.yardlist.YardlistPresenter">
+    <stylesheets>
+        <URL value="@/styles/yardList.css" />
+    </stylesheets>
+    <children>
+        <HBox alignment="CENTER_RIGHT">
+            <children>
+                <Button fx:id="btnAdd" mnemonicParsing="false" text="%btn.add" />
+            </children>
+        </HBox>          
+        <TableView fx:id="yardsView" onMouseClicked="#showYard" tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="yardTableName" text="%yard.name" />
+                <TableColumn fx:id="yardTableAddress" text="%yard.address" />
+                <TableColumn fx:id="yardTableHivesCount" text="%hive.count" />
+            </columns>
+        </TableView>
+    </children>
+</VBox>

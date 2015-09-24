@@ -1,5 +1,5 @@
 * {    
-    -fx-font-size: 14pt;
+    -fx-font-size: 12pt;
     /** for layout testing, uncomment following lines
     -fx-border-style: dashed;
     -fx-border-color: red; **/
@@ -38,16 +38,6 @@ BUTTON
 .button:focused
 {
     -fx-focus-color: transparent;
-}
-
-/*************************
-MENU
-**************************/
-.menu-bar { 
-    /*-fx-border-style: none;*/
-    -fx-background-color: transparent;
-    -fx-focus-color: transparent;
-    -fx-background-radius: 0;
 }
 
 /*************************

@@ -28,7 +28,7 @@ public class YardListController implements Initializable, ScreenControllerInject
     
 
     private ScreensController screensController;
-    private YardService yardService = YardService.getInstance();
+//    private YardService yardService = new YardService();
 
     @FXML
     private TableView<YardFx> yardsView;
@@ -45,7 +45,7 @@ public class YardListController implements Initializable, ScreenControllerInject
         // TODO
         yardName.setCellValueFactory(data -> data.getValue().nameProperty());
         hivesCount.setCellValueFactory(data -> data.getValue().hivesCount());
-        yardsView.setItems(yardService.getYards());
+//        yardsView.setItems(yardService.getYards());
         yardsView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
     }
 
@@ -57,7 +57,7 @@ public class YardListController implements Initializable, ScreenControllerInject
     @FXML
     private void showYard(){
         LOG.log(Level.INFO, "entering");
-        yardService.setYardForOverview(yardsView.getSelectionModel().getSelectedItem());
+//        yardService.setYardForOverview(yardsView.getSelectionModel().getSelectedItem());
         screensController.setScreen(SCREEN.YardOverview);
     } 
 }

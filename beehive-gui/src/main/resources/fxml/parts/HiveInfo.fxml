@@ -9,50 +9,5 @@
 <VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.badand.beehive.gui.controller.HiveInfoController"
       spacing="50" >
     <children>
-        <HBox >
-            <children>                
-                <VBox>
-                    <children>
-                        <Label text="%hive.name" />  
-                        <Label text="%hive.state" />  
-                        <Label text="%hive.created" />  
-                        <Label text="%hive.strength" />
-                    </children>
-                </VBox>
-                <VBox>
-                    <children>
-                        <Label text="%hive.queen" />
-                        <Label text="%notes" />
-                        <Label text="%hive.todo" />
-                    </children>
-                </VBox>
-            </children>
-        </HBox>
-        <HBox >
-            <children>                
-                <VBox>
-                    <children>
-                        <Label text="%hive.inspections" />
-                        <TableView>                    
-                            <columns>
-                                <TableColumn fx:id="inspectionDate" text="%date" />
-                                <TableColumn fx:id="inspectionResult" text="%hive.inspectionResult" />
-                            </columns>
-                        </TableView>
-                    </children>
-                </VBox>
-                <VBox>
-                    <children>
-                        <Label text="%hive.harvests" />
-                        <TableView>                    
-                            <columns>
-                                <TableColumn fx:id="harvestDate" text="%date" />
-                                <TableColumn fx:id="harvestResult" text="%hive.harvestResult" />
-                            </columns>
-                        </TableView>
-                    </children>
-                </VBox>
-            </children>
-        </HBox>
     </children>
 </VBox>

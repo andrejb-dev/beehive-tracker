@@ -5,8 +5,9 @@ package sk.badand.beehive.services;
 
 import java.util.List;
 import java.util.logging.Logger;
+import javafx.beans.property.ListProperty;
+import javafx.beans.property.SimpleListProperty;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import sk.badand.beehive.model.Yard;
 import sk.badand.beehive.modelfx.YardFx;
 
@@ -18,67 +19,37 @@ public class YardService {
 
     private static final Logger LOG = Logger.getLogger(YardService.class.getName());
 
-    private ObservableList<YardFx> yards = FXCollections.observableArrayList();
-    private static YardService instance;
+    private ListProperty<YardFx> yards = new SimpleListProperty<>(FXCollections.observableArrayList());
 
-    public static YardService getInstance() {
-        if (instance == null) {
-            instance = new YardService();
-        }
-        return instance;
-    }
-    private YardFx yardForOverview;
-
-    YardService() {
-//        try {
-//            this.dao = DaoManager.createDao(PersistenceHelper.connectionSource, Yard.class);
-//        } catch (SQLException ex) {
-//            LOG.log(Level.SEVERE, null, ex);
-//        }
-//        yards = new ObservableListWrapper<>(dao.queryForAll());
+    public YardService() {
         yards.add(new YardFx(Yard.getMockYard()));
         yards.add(new YardFx(Yard.getMockYard()));
         yards.add(new YardFx(Yard.getMockYard()));
         yards.add(new YardFx(Yard.getMockYard()));
-    }
-
-    public List readAllYards() {
-        return getYards();
     }
 
     public boolean createYard(Yard newYard) {
-        if (!yards.contains(newYard)) {
-            getYards().add(new YardFx(newYard));
+        final YardFx yardFx = new YardFx(newYard);
+        if (!yards.contains(yardFx)) {
+            getYards().add(yardFx);
             return true;
         }
         return false;
     }
 
-    public Yard readYard(String yardName) {
-        return Yard.getMockYard();
-    }
-
-    public Yard updateYard(Yard yard) {
+    public YardFx updateYard(YardFx yard) {
         if (getYards().contains(yard)) {
-            getYards().set(getYards().indexOf(yard), new YardFx(yard));
+            getYards().set(getYards().indexOf(yard), yard);
             return yard;
         }
         return null;
     }
 
-    public boolean deleteYard(Yard yard) {
+    public boolean deleteYard(YardFx yard) {
         return getYards().remove(yard);
     }
 
-    public ObservableList<YardFx> getYards() {
+    public ListProperty getYards() {
         return yards;
-    }
-
-    public void setYardForOverview(YardFx yardFx) {
-        yardForOverview = yardFx;
-    }
-    
-    public YardFx getYardForOverview(){
-        return yardForOverview;
     }
 }

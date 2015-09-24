@@ -38,7 +38,6 @@ public class YardOverviewController implements Initializable, ScreenControllerIn
     @Override
     public void setScreenController(ScreensController screenController) {
         this.screensController = screenController;
-        menuController.setScreenController(screenController);
         hiveListController.setScreenController(screenController);
         yardInfoController.setScreenController(screenController);
     }

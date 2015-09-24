@@ -12,15 +12,5 @@
         <fx:include fx:id="menu" source="parts/Menu.fxml"/>
     </top>
     <center>
-        <VBox>
-            <children>  
-                <HBox>
-                    <children>
-                        <Button mnemonicParsing="false" text="%btn.back" onMouseClicked="#showYard" />
-                    </children>
-                </HBox>
-                <fx:include fx:id="hiveInfo" source="parts/HiveInfo.fxml"/>                
-            </children>
-        </VBox>
     </center>
 </BorderPane>

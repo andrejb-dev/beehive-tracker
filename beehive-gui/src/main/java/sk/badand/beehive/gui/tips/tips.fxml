@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox styleClass="tips" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sk.badand.beehive.gui.tips.TipsPresenter">
+    <stylesheets>
+        <URL value="@/styles/tips.css"/>
+    </stylesheets>
+    <padding>
+        <javafx.geometry.Insets bottom="10" left="10" right="10" top="10" />    
+    </padding>
+    <children>        
+        <TextArea VBox.vgrow="ALWAYS"  fx:id="tipContentArea"  editable="false" wrapText="true" />  
+        <Button mnemonicParsing="false" text="%btn.next" onMouseClicked="#showNextTip" />
+    </children>
+</VBox>

@@ -1,9 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Copyright 2015 Andrej Badinka
  */
-package sk.badand.beehive.gui.controller;
+package sk.badand.beehive.gui.menu;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,9 +15,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -31,9 +26,8 @@ import sk.badand.beehive.BeehiveTrackerMain;
  *
  * @author abadinka
  */
-public class MenuController implements Initializable {
-
-    private static final Logger LOG = Logger.getLogger(MenuController.class.getName());
+public class MenuPresenter implements Initializable {
+    private static final Logger LOG = Logger.getLogger(MenuPresenter.class.getName());
 
     /**
      * Initializes the controller class.
@@ -41,16 +35,12 @@ public class MenuController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }
-
-    /**
-     * Creates an empty address book.
-     */
+    }  
+    
     @FXML
     private void handleNew() {
+        LOG.log(Level.INFO, "entering");
         //TODO handleNew
-//        mainApp.getPersonData().clear();
-//        mainApp.setPersonFilePath(null);
     }
 
     /**

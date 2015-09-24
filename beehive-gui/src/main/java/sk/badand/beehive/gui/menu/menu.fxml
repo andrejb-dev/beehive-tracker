@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="sk.badand.beehive.gui.menu.MenuPresenter"
+            AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+    <stylesheets>
+        <URL value="@/styles/menu.css" />
+    </stylesheets>
+    <children>
+        <MenuBar AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <menus>
+                <Menu mnemonicParsing="false" text="%menu.file">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleNew" text="%menu.new" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleOpen" text="%menu.load" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleSave" text="%menu.save" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleSaveAs" text="%menu.saveAs" />
+                        <!--<MenuItem mnemonicParsing="false" text="%menu.close" onAction="#handleExit" />-->
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="%menu.options">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#handleAbout" text="%menu.language" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleTips" text="%menu.tips" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleAbout" text="%menu.help" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleAbout" text="%menu.about" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </children>
+</AnchorPane>
