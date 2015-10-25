@@ -20,7 +20,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javax.inject.Inject;
-import sk.badand.beehive.gui.ContentController;
+import sk.badand.beehive.gui.controller.ContentController;
 import sk.badand.beehive.model.enums.Strength;
 import sk.badand.beehive.modelfx.HiveFx;
 import sk.badand.beehive.modelfx.YardFx;

@@ -11,7 +11,7 @@ import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javax.inject.Inject;
-import sk.badand.beehive.gui.ContentController;
+import sk.badand.beehive.gui.controller.ContentController;
 import sk.badand.beehive.modelfx.YardFx;
 import sk.badand.beehive.services.YardService;
 
@@ -42,7 +42,7 @@ public class YardlistPresenter implements Initializable {
         yardTableName.setCellValueFactory(data -> data.getValue().nameProperty());
         yardTableAddress.setCellValueFactory(data -> data.getValue().addressProperty().asString());
         yardTableHivesCount.setCellValueFactory(data -> data.getValue().hivesCount());
-        yardsView.setItems(yardService.getYards());
+//        yardsView.setItems(yardService.getYards());
         yardsView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
         initBindings();

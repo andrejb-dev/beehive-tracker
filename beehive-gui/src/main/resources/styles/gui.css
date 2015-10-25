@@ -4,4 +4,9 @@
 
 .mainFxmlClass {
     /*-fx-background-image: url("../imgs/background.jpg");*/
+    /*-fx-border-color: red;*/
+}
+
+.test {
+    -fx-border-color: red;
 }

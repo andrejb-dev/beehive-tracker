@@ -9,6 +9,7 @@ import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;
 import javafx.collections.FXCollections;
 import sk.badand.beehive.model.Yard;
+import sk.badand.beehive.modelfx.CommonEntity;
 import sk.badand.beehive.modelfx.YardFx;
 
 /**
@@ -19,7 +20,7 @@ public class YardService {
 
     private static final Logger LOG = Logger.getLogger(YardService.class.getName());
 
-    private ListProperty<YardFx> yards = new SimpleListProperty<>(FXCollections.observableArrayList());
+    private ListProperty<CommonEntity> yards = new SimpleListProperty<>(FXCollections.observableArrayList());
 
     public YardService() {
         yards.add(new YardFx(Yard.getMockYard()));
@@ -49,7 +50,7 @@ public class YardService {
         return getYards().remove(yard);
     }
 
-    public ListProperty getYards() {
+    public ListProperty<CommonEntity> getYards() {
         return yards;
     }
 }

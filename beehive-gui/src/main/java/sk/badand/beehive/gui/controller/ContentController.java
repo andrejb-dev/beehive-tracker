@@ -1,7 +1,7 @@
 /*
  * Copyright 2015 Andrej Badinka
  */
-package sk.badand.beehive.gui;
+package sk.badand.beehive.gui.controller;
 
 import javafx.scene.layout.Pane;
 import sk.badand.beehive.gui.hive.HivePresenter;

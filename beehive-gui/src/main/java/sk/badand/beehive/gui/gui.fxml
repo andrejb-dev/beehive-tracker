@@ -14,15 +14,18 @@
     </stylesheets>
     <children>
         <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-            <children>
-                <!--<fx:include source="../../../../../resources/fxml/parts/Menu.fxml"/>-->
-                
+            <children>                
                 <AnchorPane fx:id="menu" />
-                <AnchorPane fx:id="content" VBox.vgrow="ALWAYS">
-                    <padding>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                    </padding>
-                </AnchorPane>
+                <HBox VBox.vgrow="ALWAYS" >
+                    <children>
+                        <AnchorPane fx:id="navigation" />
+                        <AnchorPane fx:id="content" HBox.hgrow="ALWAYS" >
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding>
+                        </AnchorPane>
+                    </children>
+                </HBox>
             </children>
         </VBox>
     </children>

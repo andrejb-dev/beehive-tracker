@@ -20,26 +20,26 @@ import sk.badand.beehive.model.enums.SunExposure;
  *
  * @author abadinka
  */
-public class YardFx {
+public class YardFx extends CommonEntity {
 
-    private Yard origin;
+    private final Yard origin;
 
-    private ObjectProperty<AddressFx> address = new SimpleObjectProperty<>();
-    private ObjectProperty<EnvironmentFx> environment = new SimpleObjectProperty<>();
-    private ListProperty<HiveFx> hives = new SimpleListProperty<>(FXCollections.observableArrayList());
-    private ListProperty<NoteFx> notes = new SimpleListProperty<>(FXCollections.observableArrayList());
-    private ObjectProperty<SunExposure> sunExposure = new SimpleObjectProperty<>();
-    private StringProperty name = new SimpleStringProperty();
-    private StringProperty description = new SimpleStringProperty();
+    private final ObjectProperty<AddressFx> address = new SimpleObjectProperty<>();
+    private final ObjectProperty<EnvironmentFx> environment = new SimpleObjectProperty<>();
+    private final ListProperty<HiveFx> hives = new SimpleListProperty<>(FXCollections.observableArrayList());
+    private final ListProperty<NoteFx> notes = new SimpleListProperty<>(FXCollections.observableArrayList());
+    private final ObjectProperty<SunExposure> sunExposure = new SimpleObjectProperty<>();
+    private final StringProperty name = new SimpleStringProperty();
+    private final StringProperty description = new SimpleStringProperty();
 
     public YardFx(Yard origin) {
         this.origin = origin;
         address.setValue(new AddressFx(origin.getAddress()));
         environment.setValue(new EnvironmentFx(origin.getEnvironment()));
         sunExposure.setValue(origin.getSunExposure());
-        for (Map.Entry<String, Hive> hive : origin.getHives().entrySet()) {
+        origin.getHives().entrySet().stream().forEach((hive) -> {
             hives.add(new HiveFx(hive.getValue()));
-        }
+        });
         notes.add(new NoteFx());
         name.setValue(origin.getName());
         description.setValue(origin.getName() + " descripion");
@@ -57,6 +57,7 @@ public class YardFx {
         return new ReadOnlyObjectWrapper(hives.size());
     }
 
+    @Override
     public StringProperty nameProperty() {
         return name;
     }
@@ -75,5 +76,10 @@ public class YardFx {
 
     public ListProperty<NoteFx> notesProperty() {
         return notes;
+    }
+
+    @Override
+    public EntityType type() {
+        return EntityType.YARD;
     }
 }

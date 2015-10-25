@@ -1,7 +1,7 @@
 /*
  * Copyright 2015 Andrej Badinka
  */
-package sk.badand.beehive.gui.yard;
+package sk.badand.beehive.gui.dashboard;
 
 import com.airhacks.afterburner.views.FXMLView;
 
@@ -9,6 +9,6 @@ import com.airhacks.afterburner.views.FXMLView;
  *
  * @author abadinka
  */
-public class YardView extends FXMLView{
+public class DashboardView extends FXMLView {
 
 }

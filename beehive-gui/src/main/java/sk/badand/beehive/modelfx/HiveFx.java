@@ -7,6 +7,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.SortedMap;
 import java.util.TreeMap;
+import javafx.beans.property.ListProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -16,14 +17,13 @@ import sk.badand.beehive.model.Hive;
 import sk.badand.beehive.model.Inspection;
 import sk.badand.beehive.model.Queen;
 import sk.badand.beehive.model.State;
-import sk.badand.beehive.model.Todo;
 import sk.badand.beehive.model.enums.Strength;
 
 /**
  *
  * @author abadinka
  */
-public class HiveFx {
+public class HiveFx extends CommonEntity {
 
     private Hive origin;
 
@@ -39,13 +39,16 @@ public class HiveFx {
 
     public HiveFx(Hive origin) {
         this.origin = origin;
+        this.name.setValue(origin.getName());
+        this.state.setValue(origin.getState());
     }
-    
-    public Hive saveHive(){
+
+    public Hive saveHive() {
         origin = new Hive(name.getValue(), state.getValue(), strength.getValue(), notes.getValue(), queen.getValue());
         return origin;
     }
 
+    @Override
     public StringProperty nameProperty() {
         return name;
     }
@@ -72,5 +75,10 @@ public class HiveFx {
 
     public ObjectProperty<TodoFx> todoProperty() {
         return todo;
+    }
+
+    @Override
+    public EntityType type() {
+        return EntityType.HIVE;
     }
 }

@@ -58,9 +58,6 @@ public class BeehiveTrackerMain extends Application {
      */
     public static void main(String[] args) {
         LOG.log(Level.INFO, "starting");
-        LOG.log(Level.FINE, "starting");
-        LOG.log(Level.FINEST, "starting");
-        LOG.log(Level.WARNING, "starting");
         launch(args);
     }
 
